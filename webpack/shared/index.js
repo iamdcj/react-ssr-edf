@@ -47,7 +47,7 @@ module.exports.rules = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|js)x?$/,
         exclude: /(node_modules)/,
         use: ["babel-loader"]
       },
@@ -70,6 +70,6 @@ module.exports.rules = {
 
 module.exports.resolve = {
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".txt"]
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".txt"]
   }
 };

@@ -2,8 +2,9 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import expressStaticGzip from "express-static-gzip";
-
 import { renderApp } from "./rendering/render-app";
+
+import { ServerGet } from "../_types";
 
 const server = express();
 const port = 3000;
@@ -19,7 +20,7 @@ server.use(
   })
 );
 
-server.get("*", (req, res) => {
+server.get("*", ({ req, res }: ServerGet) => {
   if (!res || !res) return;
   renderApp(req, res);
 });

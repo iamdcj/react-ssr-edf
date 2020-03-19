@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
 import { hydrateApplication } from "../../_management/actions/hydrateApplication";
 import { ServerStyleSheet } from "styled-components";
+import { ServerGet } from "../../_types";
 
 import App from "../App";
 import Document from "./document";
@@ -13,9 +14,9 @@ const path = require("path");
 const statsFile = path.resolve("public/loadable-stats.json");
 const extractor = new ChunkExtractor({ statsFile });
 
-export const renderApp = (req, res) => {
+export const renderApp = ({ req, res }: ServerGet) => {
   hydrateApplication(req)
-    .then(data => {
+    .then((data: any) => {
       const context = {};
       let markup = "";
 
@@ -23,7 +24,7 @@ export const renderApp = (req, res) => {
         markup = renderToString(
           sheet.collectStyles(
             <ChunkExtractorManager extractor={extractor}>
-              <App path={req.path} context={context} store={store} />
+              <App path={req.path} context={context} store={data} />
             </ChunkExtractorManager>
           )
         );

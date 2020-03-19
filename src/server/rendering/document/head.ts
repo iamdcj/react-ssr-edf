@@ -4,7 +4,6 @@ import serialize from "serialize-javascript";
 const Head = ({ helmet, data, scriptTags, styleTags }) =>
   `<head>
     ${Meta(helmet)}
-    ${Preloads()}
     ${Scripts(data, scriptTags)}
     ${StyleSheets(styleTags)}
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -18,10 +17,6 @@ const Meta = helmet => `
   ${helmet.title.toString()}
   ${helmet.meta.toString()}
 `;
-
-const PreConnects = () => ``;
-
-const Preloads = () => ``;
 
 const Scripts = (data, scripts) => ` 
   ${scripts}
