@@ -1,9 +1,32 @@
 {
-  "plugins": ["react-app"],
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
   "env": {
     "browser": true,
     "node": true,
     "es6": true
+  },
+  "rules": {
+    "react/display-name": 0,
+    "react/prop-types": 0,
+    "no-underscore-dangle": 0,
+    "jsx-a11y/no-onchange": 0,
+    "jsx-a11y/media-has-caption": 0,
+    "jsx-a11y/label-has-for": 0,
+    "no-console": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ]
   },
   "globals": {
     "window": true,

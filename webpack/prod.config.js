@@ -13,7 +13,6 @@ date = date.toLocaleDateString().replace(/\//g, "-");
 
 module.exports = () => {
   const client = {
-    entry: "./src/client/index.js",
     ...shared.output,
     optimization: {
       ...shared.splitChunks,
