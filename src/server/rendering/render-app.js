@@ -8,10 +8,8 @@ import { hydrateApplication } from "../../_management/actions/hydrateApplication
 import App from "../App";
 import Document from "./document";
 
-export default (req, res) => {
-  const promise = hydrateApplication(req);
-
-  promise
+export const renderApp = (req, res) => {
+  hydrateApplication(req)
     .then(data => {
       const context = {};
       let markup = "";
