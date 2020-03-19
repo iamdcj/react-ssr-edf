@@ -25,8 +25,8 @@ const Head = ({
   return (
     <Helmet>
       <html lang={`${lang ? lang : "en"}`} />
-      <title>{`${title ? `${title} | GEA` : "GEA"}`}</title>
-      <meta name="description" content={description ? description : "GEA"} />
+      <title>{title}</title>
+      <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       {canonical && <link rel="canonical" href={canonical} />}
       {og?.length > 0 &&
