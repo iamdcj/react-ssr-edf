@@ -12,19 +12,16 @@ const Head = ({ helmet, data, scriptTags, styleTags }) =>
 `;
 
 const Meta = helmet => `
-  ${helmet.title.toString()}
-  ${helmet.meta.toString()}
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <meta name="theme-color" content="" />
+  ${helmet.title.toString()}
+  ${helmet.meta.toString()}
 `;
 
 const PreConnects = () => ``;
 
-const Preloads = () => `
-  <link rel="preload" href="/vendor.chunk.js" as="script" importance="high" />
-  <link rel="preload" href="/app.js" as="script" importance="high" />
-`;
+const Preloads = () => ``;
 
 const Scripts = (data, scripts) => ` 
   ${scripts}
