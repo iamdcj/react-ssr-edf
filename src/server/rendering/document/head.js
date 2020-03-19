@@ -1,12 +1,12 @@
 //* DEPs.
 import serialize from "serialize-javascript";
 
-const Head = (helmet, data, scripts) =>
+const Head = ({ helmet, data, scriptTags, styleTags }) =>
   `<head>
     ${Meta(helmet)}
     ${Preloads()}
-    ${Scripts(data, scripts)}
-    ${StyleSheets()}
+    ${Scripts(data, scriptTags)}
+    ${StyleSheets(styleTags)}
     <link rel="shortcut icon" href="/favicon.ico" />
   </head>
 `;
@@ -33,6 +33,6 @@ const Scripts = (data, scripts) => `
   </script>
 `;
 
-const StyleSheets = () => ``;
+const StyleSheets = styleTags => `${styleTags}`;
 
 export default Head;

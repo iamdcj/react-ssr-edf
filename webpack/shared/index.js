@@ -24,10 +24,10 @@ module.exports.output = {
 };
 
 module.exports.plugins = [
-  new LoadablePlugin(),
   new CleanWebpackPlugin(["public"], {
     root: path.join(__dirname, "../../")
   }),
+  new LoadablePlugin(),
   new CopyPlugin(copyFiles)
 ];
 

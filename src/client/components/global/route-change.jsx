@@ -24,18 +24,7 @@ class RouteChange extends Component {
 
     const page = metdata?.title;
 
-    return (
-      <div
-        tabIndex="-1"
-        ref={this.routeChange}
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-        className="visually--hidden"
-      >
-        <p>You are currently viewing the {page} page.</p>
-      </div>
-    );
+    return <></>;
   }
 }
 

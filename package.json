@@ -25,6 +25,7 @@
     "react-toast-notifications": "^2.4.0",
     "react-transition-group": "^2.5.3",
     "serialize-javascript": "^3.0.0",
+    "styled-components": "^5.0.1",
     "throttle-debounce": "^2.1.0",
     "universal-cookie": "^2.2.0"
   },
@@ -53,6 +54,7 @@
     "babel-eslint": "^9.0.0",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.7",
     "clean-webpack-plugin": "^0.1.19",
     "compression-webpack-plugin": "^3.1.0",
     "copy-webpack-plugin": "^5.0.1",
@@ -79,11 +81,11 @@
   "scripts": {
     "start": "run-s start:dev",
     "dev:build": "webpack --mode=development --config  webpack/dev.config.js --watch --progress",
-    "dev:server": "nodemon --watch server server",
-    "start:dev": "run-p dev:*",
+    "dev:serve": "nodemon --watch server server",
+    "start:dev": "run-s dev:build dev:serve",
     "prod:build": "webpack  --mode=production --config  webpack/prod.config.js",
-    "prod:server": "nodemon server",
-    "start:prod": "run-s prod:build prod:server",
+    "prod:serve": "nodemon server",
+    "start:prod": "run-s prod:build prod:serve",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook "
   }

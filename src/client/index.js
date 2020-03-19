@@ -2,7 +2,7 @@ import React from "react";
 import { loadableReady } from "@loadable/component";
 
 import { hydrate } from "react-dom";
-import BrowserRouter from "react-router-dom/BrowserRouter";
+import { BrowserRouter } from "react-router-dom";
 
 import Router from "../_router/router";
 import { reconcileData } from "./_helpers/hydration";

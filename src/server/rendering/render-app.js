@@ -3,11 +3,12 @@ import { renderToString } from "react-dom/server";
 import { Helmet } from "react-helmet";
 import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
 import { hydrateApplication } from "../../_management/actions/hydrateApplication";
+import { ServerStyleSheet } from "styled-components";
 
-//* - COMPONENTS
 import App from "../App";
 import Document from "./document";
 
+const sheet = new ServerStyleSheet();
 const path = require("path");
 const statsFile = path.resolve("public/loadable-stats.json");
 const extractor = new ChunkExtractor({ statsFile });
@@ -20,16 +21,27 @@ export const renderApp = (req, res) => {
 
       try {
         markup = renderToString(
-          <ChunkExtractorManager extractor={extractor}>
-            <App path={req.path} context={context} store={store} />
-          </ChunkExtractorManager>
+          sheet.collectStyles(
+            <ChunkExtractorManager extractor={extractor}>
+              <App path={req.path} context={context} store={store} />
+            </ChunkExtractorManager>
+          )
         );
       } catch (error) {
         markup = "";
       }
 
       const helmet = Helmet.renderStatic();
-      const document = Document(helmet, markup, data, extractor);
+      const styleTags = sheet.getStyleTags();
+      const scriptTags = extractor.getScriptTags();
+
+      const document = Document({
+        helmet,
+        markup,
+        data,
+        styleTags,
+        scriptTags
+      });
 
       res.send(document);
     })
