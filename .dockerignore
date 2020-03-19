@@ -1,0 +1,14 @@
+npm-debug.log
+bundle-reports
+
+.git
+.gitignore
+.dockerignore
+README.md
+
+yarn-error.log
+
+node_modules
+Dockerfile
+
+stories
