@@ -1,40 +1,31 @@
 import React from "react";
+
+//* DEPs.
+import loadable from "@loadable/component";
+
 import ErrorBoundary from "../_errors/_boundary";
 
-const returnComponent = (data, index, withinTab, componentCount) => {
-  let Component;
+const returnComponent = (data, index, withinTab, componentCount = 0) => {
+  const componentName = data.template.name;
+  let Component = null;
 
-  try {
-    Component = require(`../presentation/${data.name}`);
-  } catch (error) {
-    console.error(error);
-    Component = null;
+  if (!componentName) {
+    return Component;
   }
 
-  const keyGuid = data.guid;
-  const isFirst = index === 0;
-  const isLast = index + 1 === componentCount;
+  Component = loadable(() => import(`../presentation/${componentName}`));
 
   return (
-    <ErrorBoundary key={`component-${keyGuid}${index}`}>
-      {Component?.default ? (
-        <RenderComponent
-          Component={Component.default}
-          data={data}
-          withinTab={withinTab}
-          firstComponent={isFirst}
-          lastComponent={isLast}
-        />
-      ) : null}
+    <ErrorBoundary key={`${data.guid}${data.fragmentId}`}>
+      <Component
+        firstComponent={index === 0}
+        lastComponent={index + 1 === componentCount}
+      />
     </ErrorBoundary>
   );
 };
 
-const RenderComponent = ({ Component, data, ...rest }) => (
-  <Component {...data} {...rest} />
-);
-
-const ComponentSwitch = ({ components, withinTab = false }) =>
+const ComponentSwitch = ({ fragments: components, withinTab = false }) =>
   components.map((component, index) =>
     returnComponent(component, index, withinTab, components.length)
   );

@@ -1,0 +1,113 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.42.0",
+  "hash": "90d2e70296b7ece02b80",
+  "publicPath": "/",
+  "outputPath": "/Users/davidjones/Sites/gea-fe/public",
+  "assetsByChunkName": {
+    "main": [
+      "app.js",
+      "app.js.map"
+    ],
+    "vendor": [
+      "vendor.chunk.js",
+      "vendor.chunk.js.map"
+    ]
+  },
+  "assets": [
+    {
+      "name": "app.js",
+      "size": 27314,
+      "chunks": [
+        "main"
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "app.js.map",
+      "size": 15118,
+      "chunks": [
+        "main"
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": true
+    },
+    {
+      "name": "vendor.chunk.js",
+      "size": 1174443,
+      "chunks": [
+        "vendor"
+      ],
+      "chunkNames": [
+        "vendor"
+      ],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "vendor.chunk.js.map",
+      "size": 1360370,
+      "chunks": [
+        "vendor"
+      ],
+      "chunkNames": [
+        "vendor"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": true
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        "vendor",
+        "main"
+      ],
+      "assets": [
+        "vendor.chunk.js",
+        "vendor.chunk.js.map",
+        "app.js",
+        "app.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        "vendor",
+        "main"
+      ],
+      "assets": [
+        "vendor.chunk.js",
+        "vendor.chunk.js.map",
+        "app.js",
+        "app.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 2,
+      "debug": false
+    }
+  },
+  "children": []
+}

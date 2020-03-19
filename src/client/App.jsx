@@ -6,13 +6,11 @@ import ErrorBoundary from "./components/_errors/_boundary";
 import Head from "./components/global/head";
 import RouteChange from "./components/global/route-change";
 
-const AppClient = () => {
-  return (
-    <>
-      <Head />
-      <RouteChange />
-    </>
-  );
-};
+const AppClient = () => (
+  <>
+    <Head />
+    <RouteChange />
+  </>
+);
 
 export default AppClient;

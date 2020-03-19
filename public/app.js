@@ -139,7 +139,7 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
 /******/
-/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var jsonpArray = window["__LOADABLE_LOADED_CHUNKS__"] = window["__LOADABLE_LOADED_CHUNKS__"] || [];
 /******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
 /******/ 	jsonpArray.push = webpackJsonpCallback;
 /******/ 	jsonpArray = jsonpArray.slice();
@@ -224,6 +224,32 @@ var AppClient = function AppClient() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AppClient);
+
+/***/ }),
+
+/***/ "./src/client/_helpers/hydration.js":
+/*!******************************************!*\
+  !*** ./src/client/_helpers/hydration.js ***!
+  \******************************************/
+/*! exports provided: reconcileData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reconcileData", function() { return reconcileData; });
+var reconcileData = function reconcileData() {
+  var data = window.__GEP_COMPOSITION_DATA__;
+
+  var _InitialData = document.getElementById("initialData");
+
+  if (_InitialData) {
+    _InitialData.parentNode.removeChild(_InitialData);
+
+    delete window.__GEP_COMPOSITION_DTA__;
+  }
+
+  return data;
+};
 
 /***/ }),
 
@@ -493,31 +519,30 @@ var RouteChange = /*#__PURE__*/function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom_BrowserRouter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom/BrowserRouter */ "./node_modules/react-router-dom/BrowserRouter.js");
-/* harmony import */ var react_router_dom_BrowserRouter__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom_BrowserRouter__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _router_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_router/router */ "./src/_router/router.jsx");
+/* harmony import */ var _loadable_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @loadable/component */ "./node_modules/@loadable/component/dist/loadable.esm.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_dom_BrowserRouter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom/BrowserRouter */ "./node_modules/react-router-dom/BrowserRouter.js");
+/* harmony import */ var react_router_dom_BrowserRouter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_dom_BrowserRouter__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _router_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_router/router */ "./src/_router/router.jsx");
+/* harmony import */ var _helpers_hydration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_helpers/hydration */ "./src/client/_helpers/hydration.js");
 
 
 
 
-var store = window.__GEP_COMPOSITION_DTA__;
-console.log(store);
 
-var _InitialData = document.getElementById("initialData");
 
-if (_InitialData) {
-  _InitialData.parentNode.removeChild(_InitialData);
-
-  delete window.__GEP_COMPOSITION_DTA__;
-}
+var data = Object(_helpers_hydration__WEBPACK_IMPORTED_MODULE_5__["reconcileData"])();
 
 var AppEntry = function AppEntry() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom_BrowserRouter__WEBPACK_IMPORTED_MODULE_2___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_router_router__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom_BrowserRouter__WEBPACK_IMPORTED_MODULE_3___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_router_router__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 };
 
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["hydrate"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AppEntry, null), document.getElementById("root"));
+var _Root = document.getElementById("root");
+
+Object(_loadable_component__WEBPACK_IMPORTED_MODULE_1__["loadableReady"])(function () {
+  return Object(react_dom__WEBPACK_IMPORTED_MODULE_2__["hydrate"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AppEntry, null), _Root);
+});
 
 if (false) {}
 

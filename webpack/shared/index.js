@@ -1,22 +1,13 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const LoadablePlugin = require("@loadable/webpack-plugin");
 
 const publicPath = "../../public";
 
 const copyFiles = [
   {
-    from: "./src/client/assets/images",
-    to: path.resolve(__dirname, publicPath),
-    toType: "dir"
-  },
-  {
-    from: "./src/client/assets/static",
-    to: path.resolve(__dirname, publicPath),
-    toType: "dir"
-  },
-  {
-    from: "./src/client/assets/data",
+    from: "./src/client/assets/*/**",
     to: path.resolve(__dirname, publicPath),
     toType: "dir"
   }
@@ -33,6 +24,7 @@ module.exports.output = {
 };
 
 module.exports.plugins = [
+  new LoadablePlugin(),
   new CleanWebpackPlugin(["public"], {
     root: path.join(__dirname, "../../")
   }),

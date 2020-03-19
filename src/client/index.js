@@ -1,17 +1,13 @@
 import React from "react";
+import { loadableReady } from "@loadable/component";
+
 import { hydrate } from "react-dom";
 import BrowserRouter from "react-router-dom/BrowserRouter";
 
 import Router from "../_router/router";
+import { reconcileData } from "./_helpers/hydration";
 
-const store = window.__GEP_COMPOSITION_DTA__;
-
-console.log(store);
-const _InitialData = document.getElementById("initialData");
-if (_InitialData) {
-  _InitialData.parentNode.removeChild(_InitialData);
-  delete window.__GEP_COMPOSITION_DTA__;
-}
+const data = reconcileData();
 
 const AppEntry = () => (
   <BrowserRouter>
@@ -19,7 +15,8 @@ const AppEntry = () => (
   </BrowserRouter>
 );
 
-hydrate(<AppEntry />, document.getElementById("root"));
+const _Root = document.getElementById("root");
+loadableReady(() => hydrate(<AppEntry />, _Root));
 
 if (module.hot) {
   module.hot.accept();

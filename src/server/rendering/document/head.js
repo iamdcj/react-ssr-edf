@@ -1,14 +1,15 @@
 //* DEPs.
 import serialize from "serialize-javascript";
 
-const Head = (helmet, data, environment) =>
+const Head = (helmet, data, scripts) =>
   `<head>
-  ${Meta(helmet)}
-  ${Preloads()}
-  ${Scripts(data, environment)}
-  ${StyleSheets()}
-  <link rel="shortcut icon" href="/favicon.ico" />
-</head>`;
+    ${Meta(helmet)}
+    ${Preloads()}
+    ${Scripts(data, scripts)}
+    ${StyleSheets()}
+    <link rel="shortcut icon" href="/favicon.ico" />
+  </head>
+`;
 
 const Meta = helmet => `
   ${helmet.title.toString()}
@@ -25,10 +26,8 @@ const Preloads = () => `
   <link rel="preload" href="/app.js" as="script" importance="high" />
 `;
 
-const Scripts = (data, environment) => ` 
-  <script defer src="/vendor.chunk.js"></script>
-  <script defer src="/app.js"></script>
-  <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
+const Scripts = (data, scripts) => ` 
+  ${scripts}
   <script id="initialData">
     window.__GEP_COMPOSITION_DTA__ = ${serialize(data)};
   </script>
