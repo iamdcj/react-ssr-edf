@@ -7,7 +7,7 @@ const publicPath = "../../public";
 
 const copyFiles = [
   {
-    from: "./src/client/assets/*/**",
+    from: "./src/client/assets/",
     to: path.resolve(__dirname, publicPath),
     toType: "dir"
   }
