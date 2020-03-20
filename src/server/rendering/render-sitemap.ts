@@ -1,4 +1,6 @@
-const renderSitemap = res => {
+import express from "express";
+
+const renderSitemap = (res: express.Response) => {
   if (!res) {
     throw Error("No response");
   }
@@ -10,7 +12,8 @@ const renderSitemap = res => {
   }
 
   fetch("")
-    .then(({ data }) => {
+    .then(response => response.json())
+    .then(data => {
       res.set("content-Type", "application/xml");
       res.send(data);
     })
