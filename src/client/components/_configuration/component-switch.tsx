@@ -1,22 +1,23 @@
 import React from "react";
 
-//* DEPs.
 import loadable from "@loadable/component";
 
 import ErrorBoundary from "../_errors/_boundary";
 
-const returnComponent = (data, index, withinTab, componentCount = 0) => {
-  const componentName = data.template.name;
+const returnComponent = (data: any, index: number, componentCount: number) => {
+  const { id } = data.template;
   let Component = null;
+  let key: string | number = index;
 
-  if (!componentName) {
+  if (!name) {
     return Component;
   }
 
-  Component = loadable(() => import(`../presentation/${componentName}`));
+  Component = loadable(() => import(`../presentation/${id}`));
+  key = `${data.id}-${index}`;
 
   return (
-    <ErrorBoundary key={`${data.guid}${data.fragmentId}`}>
+    <ErrorBoundary key={key}>
       <Component
         firstComponent={index === 0}
         lastComponent={index + 1 === componentCount}
@@ -25,9 +26,9 @@ const returnComponent = (data, index, withinTab, componentCount = 0) => {
   );
 };
 
-const ComponentSwitch = ({ fragments: components, withinTab = false }) =>
-  components.map((component, index) =>
-    returnComponent(component, index, withinTab, components.length)
+const ComponentSwitch = ({ fragments }: any) =>
+  fragments.map((component: any, index: number) =>
+    returnComponent(component, index, fragments.length)
   );
 
 export default ComponentSwitch;

@@ -1,11 +1,12 @@
 import React from "react";
 
 import ErrorBoundary from "../components/_errors/_boundary";
+import ComponentSwitch from "client/components/_configuration/component-switch";
 
-const RegionSwitch = ({ regions, metadata }) =>
-  regions.map((region, index) => (
-    <ErrorBoundary>
-      <ComponentSwitch components={components} />
+const RegionSwitch = ({ regions }) =>
+  regions.map(({ fragments }, index: number) => (
+    <ErrorBoundary key={`region-${index}`}>
+      <ComponentSwitch components={fragments} />
     </ErrorBoundary>
   ));
 
