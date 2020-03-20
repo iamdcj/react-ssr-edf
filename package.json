@@ -86,14 +86,10 @@
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "start": "run-s start:dev",
-    "dev:build": "webpack --mode=development --config  webpack/dev.config.js --watch --progress",
-    "dev:serve": "nodemon --watch server server",
-    "start:dev": "run-s dev:build dev:serve",
-    "prod:build": "webpack  --mode=production --config  webpack/prod.config.js",
-    "prod:serve": "nodemon server",
-    "start:prod": "run-s prod:build prod:serve",
+    "build": "webpack  --config  webpack --watch --progress",
+    "serve": "nodemon server",
+    "start": "run-p build serve",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook "
+    "build-storybook": "build-storybook"
   }
 }

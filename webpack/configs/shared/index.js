@@ -2,8 +2,7 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const LoadablePlugin = require("@loadable/webpack-plugin");
-
-const publicPath = "../../public";
+const publicPath = "../../../public";
 
 const copyFiles = [
   {
@@ -14,7 +13,7 @@ const copyFiles = [
 ];
 
 module.exports.output = {
-  entry: "./src/client/index.js",
+  entry: "./src/client/index.tsx",
   output: {
     path: path.resolve(__dirname, publicPath),
     filename: "app.js",
