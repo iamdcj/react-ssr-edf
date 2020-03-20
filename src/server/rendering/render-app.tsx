@@ -15,7 +15,11 @@ const statsFile = path.resolve("public/loadable-stats.json");
 const extractor = new ChunkExtractor({ statsFile });
 
 export const renderApp = ({ req, res }: ServerGet) => {
-  hydrateApplication(req)
+  if (!req || !res) {
+    throw Error("Nothing to work with");
+  }
+
+  hydrateApplication(".")
     .then((data: any) => {
       const context = {};
       let markup = "";
@@ -23,7 +27,7 @@ export const renderApp = ({ req, res }: ServerGet) => {
       try {
         const styledApp = sheet.collectStyles(
           <ChunkExtractorManager extractor={extractor}>
-            <App path={req.path} context={context} store={data} />
+            <App path={req.path} context={context} />
           </ChunkExtractorManager>
         );
 
@@ -47,6 +51,6 @@ export const renderApp = ({ req, res }: ServerGet) => {
       res.send(document);
     })
     .catch(error => {
-      console.error("RENDER APP: ", error.message);
+      throw Error(error.message);
     });
 };
