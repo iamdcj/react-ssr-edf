@@ -2,10 +2,6 @@
 
 SSR React application boilerplate, largely based on a projet build for DTUS, but updated and refactored to be used on a DTUK project
 
-## Application overview
-
-The following is an overview of the core appliation technologies used, and the folder structure of the application.
-
 ### Core Technologies
 
 - built with the following technologies:
@@ -37,7 +33,9 @@ The following sections will help you get up-and-running with the solution.
 
 ### Installation
 
-Install Dependencies `npm install`
+1. Install Dependencies `yarn` or `npm install`
+
+2. Set environment `yarn dotenvi -s <[local, development, production]>`
 
 ### Running the Application
 
@@ -72,8 +70,8 @@ Please refer to following sections when developing components.
 All presentation components should respect the following convention upon creation:
 
 - PascalCased directory, containing:
-  - `index.js` file which exports default from the chosen `.jsx/.tsx` file.
-  - One or more `.jsx/.tsx` component files.
+  - `index.[j|t]s` file which exports default from the chosen `.[j|t]sx` file.
+  - One or more `.[j|t]sx` component files.
 
 Example:
 
@@ -132,5 +130,4 @@ The application utilises styled components.
 ##### Authors
 
 Please contact any of the following to propose changes/report issues;
-**David Christian Jones** - _Senior Front-end Developer_
-**Mark 'Junior' Cassidy** - _Front-end Developer_
+**David Christian Jones** - _UI Engineer_
