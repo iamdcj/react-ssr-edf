@@ -3,8 +3,9 @@ const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const shared = require("./shared");
 
-module.exports = {
+module.exports = mode => ({
   target: "node",
+  mode,
   entry: "./src/server/index.ts",
   output: {
     path: path.resolve(__dirname, "../../server"),
@@ -26,4 +27,4 @@ module.exports = {
   },
   externals: nodeExternals(),
   ...shared.resolve
-};
+});

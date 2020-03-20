@@ -1,5 +1,5 @@
 const webpack = require("webpack");
-const shared = require("./shared");
+const shared = require("../shared");
 
 module.exports = {
   mode: "development",

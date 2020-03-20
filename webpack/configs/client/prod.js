@@ -1,7 +1,7 @@
 const TerserPlugin = require("terser-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const webpack = require("webpack");
-const shared = require("./shared");
+const shared = require("../shared");
 
 module.exports = {
   mode: "production",
