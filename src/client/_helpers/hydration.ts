@@ -3,8 +3,8 @@ export const reconcileData = () => {
 
   const _InitialData = document.getElementById("initialData");
   if (_InitialData) {
-    _InitialData.parentNode.removeChild(_InitialData);
-    delete window.__GEP_COMPOSITION_DTA__;
+    _InitialData.parentNode?.removeChild(_InitialData);
+    delete window.__GEP_COMPOSITION_DATA__;
   }
 
   return data;
