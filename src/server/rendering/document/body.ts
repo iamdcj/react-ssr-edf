@@ -1,4 +1,4 @@
-const Body = markup => `
+const Body = (markup: string) => `
   <body>
     ${noScriptNotice()}
     <main id="root">${markup}</main>

@@ -1,22 +1,13 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const LoadablePlugin = require("@loadable/webpack-plugin");
 
 const publicPath = "../../public";
 
 const copyFiles = [
   {
-    from: "./src/client/assets/images",
-    to: path.resolve(__dirname, publicPath),
-    toType: "dir"
-  },
-  {
-    from: "./src/client/assets/static",
-    to: path.resolve(__dirname, publicPath),
-    toType: "dir"
-  },
-  {
-    from: "./src/client/assets/data",
+    from: "./src/client/assets/",
     to: path.resolve(__dirname, publicPath),
     toType: "dir"
   }
@@ -36,6 +27,7 @@ module.exports.plugins = [
   new CleanWebpackPlugin(["public"], {
     root: path.join(__dirname, "../../")
   }),
+  new LoadablePlugin(),
   new CopyPlugin(copyFiles)
 ];
 
@@ -55,7 +47,7 @@ module.exports.rules = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|js)x?$/,
         exclude: /(node_modules)/,
         use: ["babel-loader"]
       },
@@ -78,6 +70,6 @@ module.exports.rules = {
 
 module.exports.resolve = {
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".txt"]
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".txt"]
   }
 };

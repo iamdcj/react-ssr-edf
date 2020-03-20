@@ -25,13 +25,8 @@ const Head = ({
   return (
     <Helmet>
       <html lang={`${lang ? lang : "en"}`} />
-      <title>{`${title ? `${title} | Omron` : "Omron"}`}</title>
-      <meta
-        name="description"
-        content={
-          description ? description : "Omron Customer Experience Platform"
-        }
-      />
+      <title>{title}</title>
+      <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       {canonical && <link rel="canonical" href={canonical} />}
       {og?.length > 0 &&

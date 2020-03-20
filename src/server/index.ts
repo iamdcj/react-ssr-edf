@@ -2,15 +2,16 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import expressStaticGzip from "express-static-gzip";
+import { renderApp } from "./rendering/render-app";
 
-import render from "./rendering/render-app";
+import { ServerGet } from "../_types";
 
-const app = express();
+const server = express();
 const port = 3000;
 
-app.use(cors());
-app.use(cookieParser());
-app.use(
+server.use(cors());
+server.use(cookieParser());
+server.use(
   "/",
   expressStaticGzip("public", {
     index: false,
@@ -19,11 +20,11 @@ app.use(
   })
 );
 
-app.get("*", (req, res, next) => {
+server.get("*", ({ req, res }: ServerGet) => {
   if (!res || !res) return;
-  render(req, res, next);
+  renderApp(req, res);
 });
 
-app.listen(port, () =>
+server.listen(port, () =>
   console.info(`Coming to you live via http://localhost:${port}`)
 );
