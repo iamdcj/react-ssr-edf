@@ -1,6 +1,6 @@
-# GEA
+# DCJ Reacr SSR
 
-SSR React application serving GEA's Customer Experience Platform.
+SSR React application boilerplate, largely based on a projet build for DTUS, but updated and refactored to be used on a DTUK project
 
 ## Application overview
 
