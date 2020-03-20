@@ -19,7 +19,7 @@
     "cors": "^2.8.4",
     "express-static-gzip": "^2.0.6",
     "focus-trap-react": "^6.0.0",
-    "intersection-observer": "^0.5.1",
+    "intersection-observer": "^0.7.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",

@@ -1,17 +1,18 @@
-const isClient = () => typeof window !== 'undefined';
+const isClient = () => typeof window !== "undefined";
 
-const supportsIntersectionObserver = () => (
-  'IntersectionObserver' in global &&
-  'IntersectionObserverEntry' in global &&
-  'intersectionRatio' in IntersectionObserverEntry.prototype
-)
+const supportsIntersectionObserver = () =>
+  "IntersectionObserver" in global &&
+  "IntersectionObserverEntry" in global &&
+  "intersectionRatio" in IntersectionObserverEntry.prototype;
 
-const IntersectionObserverPF = []
+const IntersectionObserverPF = [];
 
 if (!supportsIntersectionObserver() && isClient()) {
-  IntersectionObserverPF.push(import(/* webpackChunkName: "IntersectionObserverPF" */ 'intersection-observer'))
-} 
+  IntersectionObserverPF.push(
+    import(
+      /* webpackChunkName: "IntersectionObserverPF" */ "intersection-observer"
+    )
+  );
+}
 
-export default [
-  ...IntersectionObserverPF
-]
+export default [...IntersectionObserverPF];

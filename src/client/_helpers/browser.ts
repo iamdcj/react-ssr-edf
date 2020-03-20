@@ -1,15 +1,13 @@
-import { debounce } from "throttle-debounce";
-
 export const documentReady = () => typeof document !== "undefined";
 
-export const getViewportWidth = () =>
-  window.innerWidth || document.documentElement.innerWidth;
+export const getViewportDimension = (dimension: string): number =>
+  window[`inner${dimension}`] || document.documentElement[`client${dimension}`];
 
 export const scrollTopEl = (
-  _El,
-  shouldFocus = false,
-  behavior = "smooth",
-  offSet = 72
+  _El: HTMLElement,
+  shouldFocus?: boolean,
+  behavior?: ScrollBehavior,
+  offSet: number = 0
 ) => {
   if (!documentReady() || !_El) return;
 
@@ -19,7 +17,7 @@ export const scrollTopEl = (
   const top = ElOffSetTop(_El) - offSet;
 
   if (isSmoothScrollSupported) {
-    const scrollOptions = {
+    const scrollOptions: ScrollToOptions = {
       top,
       behavior
     };
@@ -30,27 +28,37 @@ export const scrollTopEl = (
   }
 };
 
-export const jumpToTop = () =>
+export const jumpToTop = () => {
   scrollTopEl(document.documentElement, false, "auto");
+};
 
-export const ElOffSetTop = _El => {
-  const ElTop = _El.getBoundingClientRect().top,
-    scrollTopPos = window.pageYOffset || document.documentElement.scrollTop;
+export const ElOffSetTop = (_El: HTMLElement): number => {
+  const ElTop = _El.getBoundingClientRect().top;
+  const scrollTopPos = window.pageYOffset || document.documentElement.scrollTop;
+
   return ElTop + scrollTopPos;
 };
 
-export const escapeOverlay = (callBack, allowEscape = true) => {
+export const escapeOverlay = (
+  callBack: (arg: boolean) => any,
+  allowEscape = true
+) => {
   if (!callBack || !allowEscape) return;
 
-  const handleEscape = function(event) {
-    if (event.code !== "Escape") return;
+  const handleEscape = function(event: KeyboardEvent) {
+    if (event.code !== "Escape") {
+      return;
+    }
+
     callBack(false);
+
     document.removeEventListener("keyup", handleEscape, false);
   };
+
   document.addEventListener("keyup", handleEscape, false);
 };
 
-export const noScroll = bool => {
+export const noScroll = (bool: boolean) => {
   const _Root = document.documentElement;
 
   if (bool) {
@@ -60,82 +68,24 @@ export const noScroll = bool => {
   }
 };
 
-export const clearFormFields = formFields => {
-  if (!formFields) return;
-
-  for (let i = 0; i < formFields.length; i++) {
-    const _FormElement = formFields[i];
-    if (_FormElement.type !== "submit") {
-      _FormElement.value = "";
-    }
-  }
-};
-
-export function returnDOMElement(selector) {
+export function returnDOMElement(selector: string) {
   let _El = null;
 
-  if (!selector) return false;
-
-  _El = document.getElementById(`${selector}`);
-
-  if (!_El) {
+  if (!selector) {
     return false;
-  } else {
-    return _El;
   }
+
+  _El = document.getElementById(selector);
+
+  return _El ? _El : false;
 }
 
-export const HubSpotEvent = (type, id, value) => {
-  let _hsq;
-
-  if (!__ClientSide__ || !id || !value) return;
-
-  _hsq = window._hsq || [];
-
-  _hsq.push([
-    type,
-    {
-      [`${id}`]: value
-    }
-  ]);
-};
-
-export const detectScrollable = (innerEl, OuterEl, setScrollable) => {
+export const detectScrollable = (
+  innerEl: HTMLElement,
+  OuterEl: HTMLElement,
+  setScrollable: (scrollable: boolean) => void
+) => {
   if (innerEl && OuterEl && innerEl.scrollWidth > OuterEl.clientWidth) {
     setScrollable(true);
   }
-};
-
-const checkPosition = (El, setStart, setEnd) => {
-  let NavWidth = null;
-  let NavScrollWidth = null;
-  let scrollPos = null;
-
-  if (!El) return;
-
-  NavWidth = El.clientWidth;
-  NavScrollWidth = El.scrollWidth;
-  scrollPos = NavWidth + El.scrollLeft;
-
-  if (scrollPos === NavScrollWidth) {
-    setStart(false);
-    setEnd(true);
-  } else if (scrollPos === NavWidth) {
-    setStart(true);
-    setEnd(false);
-  } else {
-    setStart(false);
-    setEnd(false);
-  }
-};
-
-export const detectScroll = (El, setStart, setEnd) => {
-  if (!El) return;
-
-  El.addEventListener(
-    "scroll",
-    debounce(100, function() {
-      checkPosition(this, setStart, setEnd);
-    })
-  );
 };

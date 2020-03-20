@@ -1,7 +1,9 @@
 import { scrollTopEl } from "./browser";
 
-export const clearFormFields = formFields => {
-  if (!formFields) return;
+export const clearFormFields = (formFields: HTMLInputElement[]) => {
+  if (!formFields || formFields.length > 1) {
+    return;
+  }
 
   for (let i = 0; i < formFields.length; i++) {
     const _FormElement = formFields[i];
@@ -11,8 +13,10 @@ export const clearFormFields = formFields => {
   }
 };
 
-export function handleValidation(controls) {
-  if (!controls || controls.length < 1) return;
+export function handleValidation(controls: HTMLInputElement[]) {
+  if (!controls || controls.length < 1) {
+    return;
+  }
 
   const _FormControls = Array.from(controls).filter(control => {
     if (control.required) {
@@ -20,9 +24,15 @@ export function handleValidation(controls) {
 
       if (!isValid) {
         return control;
+      } else {
+        return null;
       }
+    } else {
+      return null;
     }
   });
 
-  scrollTopEl(_FormControls[0], true);
+  if (_FormControls[0]) {
+    scrollTopEl(_FormControls[0], true);
+  }
 }
