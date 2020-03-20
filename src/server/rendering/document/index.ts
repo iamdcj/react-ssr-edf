@@ -1,10 +1,10 @@
 import Head from "./head";
 import Body from "./body";
 
-const Document = (helmet, markup, data) =>
-  `<!DOCTYPE html>
-    <html class="no-js" ${helmet.htmlAttributes.toString()}>
-      ${Head(helmet, data)}
+const Document = ({ markup, helmet, ...rest }) => `
+  <!DOCTYPE html>
+  <html class="no-js" ${helmet.htmlAttributes.toString()}>
+      ${Head({ helmet, ...rest })}
       ${Body(markup)}
     <script>
       document.documentElement.classList.remove('no-js');
