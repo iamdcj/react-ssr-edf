@@ -33,7 +33,7 @@ export const renderApp = ({ req, res }: ServerGet) => {
 
         markup = renderToString(styledApp);
       } catch (error) {
-        markup = "";
+        console.error("Rendering Error");
       }
 
       const helmet = Helmet.renderStatic();
