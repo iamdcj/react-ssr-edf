@@ -1,7 +1,7 @@
 import { useEffect, useRef, useReducer } from "react";
 
-export function useInterval(callback, delay) {
-  const savedCallback = useRef();
+export function useInterval(callback: () => void, delay: number) {
+  const savedCallback: React.MutableRefObject<any> = useRef();
 
   useEffect(() => {
     savedCallback.current = callback;
@@ -18,16 +18,16 @@ export function useInterval(callback, delay) {
   }, [delay]);
 }
 
-export const useSetState = initialState => {
+export const useSetState = (initialState: any) => {
   const [state, setState] = useReducer(
-    (state, newState) => ({ ...state, ...newState }),
+    (state: any, newState: any) => ({ ...state, ...newState }),
     initialState
   );
 
   return [state, setState];
 };
 
-export const usePrevious = value => {
+export const usePrevious = (value: any) => {
   const ref = useRef();
 
   useEffect(() => {

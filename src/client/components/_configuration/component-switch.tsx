@@ -1,12 +1,24 @@
-import React from "react";
+import React, { JSXElementConstructor } from "react";
 
-import loadable from "@loadable/component";
+import loadable, { LoadableComponent } from "@loadable/component";
 
 import ErrorBoundary from "../_errors/_boundary";
 
-const returnComponent = (data: any, index: number, componentCount: number) => {
+import { Fragment } from "../../../_types";
+
+const returnComponent = (
+  data: Fragment,
+  index: number,
+  componentCount: number
+) => {
   const { id } = data.template;
-  let Component = null;
+
+  // to fix
+  let Component:
+    | LoadableComponent<{}>
+    | React.ComponentType
+    | null
+    | any = null;
   let key: string | number = index;
 
   if (!name) {
@@ -26,9 +38,12 @@ const returnComponent = (data: any, index: number, componentCount: number) => {
   );
 };
 
-const ComponentSwitch = ({ fragments }: any) =>
-  fragments.map((component: any, index: number) =>
-    returnComponent(component, index, fragments.length)
-  );
+const ComponentSwitch = ({ components }: { components: Fragment[] }) => (
+  <>
+    {components.map((component: Fragment, index: number) => (
+      <>{returnComponent(component, index, components.length)}</>
+    ))}
+  </>
+);
 
 export default ComponentSwitch;

@@ -1,31 +1,21 @@
-import React, { Component, createRef } from "react";
+import React, { useEffect, useRef } from "react";
 
-class RouteChange extends Component {
-  routeChange = createRef();
+const RouteChange = () => {
+  const routeChange: React.MutableRefObject<any> = useRef();
 
-  componentDidUpdate(prevProps) {
-    const {
-      routeChange: { current: _El },
-      props,
-      props: { metdata }
-    } = this;
+  useEffect(() => {
+    const _El: HTMLElement | null = routeChange.current;
 
-    const page = metdata?.title;
-    const prevPage = prevProps?.metdata?.title;
+    if (!_El) {
+      return;
+    }
 
-    if (!page || page === prevPage) return;
+    setTimeout(() => {
+      _El.focus();
+    }, 250);
+  }, []);
 
-    //* FOCUS / SCROLLTOP
-    if (_El) setTimeout(() => _El.focus(), 250);
-  }
-
-  render() {
-    const { metdata } = this.props;
-
-    const page = metdata?.title;
-
-    return <></>;
-  }
-}
+  return <></>;
+};
 
 export default RouteChange;

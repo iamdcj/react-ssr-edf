@@ -19,12 +19,12 @@ const scrollToTarget = (e, selector) => {
   scrollTopEl(_El);
 };
 
-const CTA = ({
+let CTA = ({
   isExternal = false,
   link = "",
-  to = link,
+  to = "",
   anchor = "",
-  onClick = false,
+  onClick = () => {},
   title = "",
   className = "",
   type = "button",
@@ -36,6 +36,8 @@ const CTA = ({
   tabIndex = null,
   ...innards
 }) => {
+  to = to ? to : link;
+
   if (anchor) {
     return (
       <a

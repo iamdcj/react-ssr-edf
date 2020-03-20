@@ -7,11 +7,14 @@ import { jumpToTop } from "../../_helpers/browser";
 import CTA from "./call-to-action";
 
 const ScrollTop = () => {
-  const [contentHeight, setContentHeight] = useState(null);
-  const [windowHeight, setWindowHeight] = useState(null);
+  const [contentHeight, setContentHeight] = useState<number>(0);
+  const [windowHeight, setWindowHeight] = useState<number>(0);
 
   useEffect(() => {
-    setContentHeight(document.querySelector("#root").clientHeight);
+    const _Root = document.querySelector("#root");
+    const rootHeight = _Root?.clientHeight || 0;
+
+    setContentHeight(rootHeight);
     setWindowHeight(window.innerHeight);
   }, []);
 
@@ -22,7 +25,7 @@ const ScrollTop = () => {
           title="Go to the top of the page"
           className="btn  btn--back-to-top btn--icon-animate-up"
           text="Return to page start."
-          onClick={() => jumpToTop()}
+          onClick={jumpToTop}
           icon="chevron-up"
           hideText
         />

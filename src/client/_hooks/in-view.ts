@@ -1,16 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Dispatch } from "react";
 
-export const useInView = (ref, options = {}) => {
-  const [state, setState] = useState({
+interface InView {
+  inView: boolean;
+  observed: boolean;
+  observer: IntersectionObserver | null;
+}
+
+export const useInView = (ref: React.MutableRefObject<any>, options = {}) => {
+  const [state, setState]: [InView, Dispatch<any>] = useState({
     inView: false,
     observed: false,
     observer: null
   });
 
-  const handleInView = entries => {
+  const handleInView = (entries: IntersectionObserverEntryInit[]) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setState({ inView: true, observed: true });
+        setState({ inView: true, observed: true, observer: state.observer });
       }
     });
   };
@@ -26,10 +32,10 @@ export const useInView = (ref, options = {}) => {
 
     if (!_Node || !observer || observed) return;
 
-    state.observer.observe(ref.current);
+    state.observer?.observe(ref.current);
 
     return function cleanup() {
-      state.observer.unobserve(_Node);
+      state.observer?.unobserve(_Node);
     };
   });
 

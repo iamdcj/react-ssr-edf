@@ -12,3 +12,30 @@ export interface ServerGet {
 }
 
 export interface Document {}
+
+export interface Fragment {
+  content: Content;
+  template: Template;
+  id: string;
+}
+
+interface Content {
+  image?: any;
+  title?: string;
+  inlineEditMarkup?: string;
+  textAlignment: string;
+  showBar?: boolean;
+  showBreadcrumb?: boolean;
+  showOverlay?: boolean;
+}
+
+interface Template {
+  id: string;
+}
+
+export interface Region {
+  id: "string";
+  fragments: any[];
+  extendedProperties: any;
+  regions: Region[];
+}

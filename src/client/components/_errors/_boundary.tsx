@@ -1,12 +1,9 @@
-import React, { Fragment, Component } from "react";
+import React, { Component, ErrorInfo } from "react";
 
 class ErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
+  state = { hasError: false };
 
-  componentDidCatch(error, info) {
+  componentDidCatch(error: Error, info: ErrorInfo) {
     console.error(error);
     console.info(info);
     this.setState({ hasError: true });
@@ -17,7 +14,7 @@ class ErrorBoundary extends Component {
       return null;
     }
 
-    return this.props.children;
+    return <>{this.props.children}</>;
   }
 }
 
