@@ -21,13 +21,13 @@ export const renderApp = ({ req, res }: ServerGet) => {
       let markup = "";
 
       try {
-        markup = renderToString(
-          sheet.collectStyles(
-            <ChunkExtractorManager extractor={extractor}>
-              <App path={req.path} context={context} store={data} />
-            </ChunkExtractorManager>
-          )
+        const styledApp = sheet.collectStyles(
+          <ChunkExtractorManager extractor={extractor}>
+            <App path={req.path} context={context} store={data} />
+          </ChunkExtractorManager>
         );
+
+        markup = renderToString(styledApp);
       } catch (error) {
         markup = "";
       }
