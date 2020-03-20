@@ -1,4 +1,4 @@
-# DCJ Reacr SSR
+# React SSR EDF
 
 SSR React application boilerplate, largely based on a projet build for DTUS, but updated and refactored to be used on a DTUK project
 
