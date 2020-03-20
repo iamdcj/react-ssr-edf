@@ -4,14 +4,12 @@ import cookieParser from "cookie-parser";
 import expressStaticGzip from "express-static-gzip";
 import { renderApp } from "./rendering/render-app";
 
-import { ServerGet } from "../_types";
-
-const server = express();
+const app = express();
 const port = 3000;
 
-server.use(cors());
-server.use(cookieParser());
-server.use(
+app.use(cors());
+app.use(cookieParser());
+app.use(
   "/",
   expressStaticGzip("public", {
     index: false,
@@ -20,11 +18,11 @@ server.use(
   })
 );
 
-server.get("*", ({ req, res }: ServerGet) => {
-  if (!res || !res) return;
-  renderApp(req, res);
+app.get("*", (req: express.Request, res: express.Response) => {
+  if (!req || !res) return;
+  renderApp({ req, res });
 });
 
-server.listen(port, () =>
+app.listen(port, () =>
   console.info(`Coming to you live via http://localhost:${port}`)
 );
