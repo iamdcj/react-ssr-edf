@@ -1,7 +1,9 @@
 //* DEPs.
 import serialize from "serialize-javascript";
 
-const Head = ({ helmet, data, scriptTags, styleTags }) =>
+import { Head } from "../../../_types";
+
+const Head = ({ helmet, data, scriptTags, styleTags }: Head) =>
   `<head>
     ${Meta(helmet)}
     ${Scripts(data, scriptTags)}
@@ -10,7 +12,7 @@ const Head = ({ helmet, data, scriptTags, styleTags }) =>
   </head>
 `;
 
-const Meta = helmet => `
+const Meta = (helmet: any) => `
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <meta name="theme-color" content="" />
@@ -18,13 +20,13 @@ const Meta = helmet => `
   ${helmet.meta.toString()}
 `;
 
-const Scripts = (data, scripts) => ` 
+const Scripts = (data: JSON, scripts: string) => ` 
   ${scripts}
   <script id="initialData">
     window.__GEP_COMPOSITION_DTA__ = ${serialize(data)};
   </script>
 `;
 
-const StyleSheets = styleTags => `${styleTags}`;
+const StyleSheets = (styleTags: string) => `${styleTags}`;
 
 export default Head;

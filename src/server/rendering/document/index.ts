@@ -1,7 +1,8 @@
 import Head from "./head";
 import Body from "./body";
+import { Document } from "../../../_types";
 
-const Document = ({ markup, helmet, ...rest }) => `
+const Document = ({ markup, helmet, ...rest }: Document) => `
   <!DOCTYPE html>
   <html class="no-js" ${helmet.htmlAttributes.toString()}>
       ${Head({ helmet, ...rest })}

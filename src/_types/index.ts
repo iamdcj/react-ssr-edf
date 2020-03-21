@@ -39,3 +39,14 @@ export interface Region {
   extendedProperties: any;
   regions: Region[];
 }
+
+export interface Head {
+  helmet: any;
+  data: JSON;
+  scriptTags: string;
+  styleTags: string;
+}
+
+export interface Document extends Head {
+  markup: string;
+}

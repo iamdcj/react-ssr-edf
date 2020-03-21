@@ -1,4 +1,6 @@
 import React from "react";
+
+// Dependencies
 import { renderToString } from "react-dom/server";
 import { Helmet } from "react-helmet";
 import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
@@ -9,10 +11,10 @@ import { ServerGet } from "../../_types";
 import App from "../App";
 import Document from "./document";
 
-const sheet = new ServerStyleSheet();
 const path = require("path");
 const statsFile = path.resolve("public/loadable-stats.json");
 const extractor = new ChunkExtractor({ statsFile });
+const sheet = new ServerStyleSheet();
 
 export const renderApp = ({ req, res }: ServerGet) => {
   if (!req || !res) {
