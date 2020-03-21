@@ -50,3 +50,8 @@ export interface Head {
 export interface Document extends Head {
   markup: string;
 }
+
+export interface Component {
+  title?: string;
+  text?: string;
+}
