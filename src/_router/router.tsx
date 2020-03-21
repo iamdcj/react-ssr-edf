@@ -1,6 +1,3 @@
-import React from "react";
-
-//*  - ROUTING
 import { renderRoutes } from "react-router-config";
 import routes from "./routes";
 
