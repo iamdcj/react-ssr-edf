@@ -1,11 +1,17 @@
+# Image
 FROM mhart/alpine-node as base
 
-WORKDIR src
+# Define working directory
+WORKDIR src 
 
-COPY package*.json yarn.lock
-RUN yarn
+# Copy Files (see ignore file)
 COPY . .
+
+# Set Environment Variables
 RUN yarn dotenvi -s production
 
+# Build application
+RUN yarn
 
-CMD [ "yarn", "start:prod" ]
+# Execute Application
+CMD [ "yarn", "start" ]
