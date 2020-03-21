@@ -47,17 +47,17 @@ The base application is built with the following technologies:
 
 ## Getting Started
 
-The following sections will help you get up-and-running with the solution.
+The following sections will help you get the application up-and-running.
 
 ### Installation
 
 1. Install Dependencies `yarn` or `npm install`
 
-2. Generate environment variables `yarn dotenvi -s <[local, development, production]>`
+2. Generate environment variables `[yarn | npm] dotenvi -s <[local, development, production]>`
 
 ### Running the Application
 
-Execute application for Development purposes;
+Run application for _development_ or _production_:
 
 ```
 npm run start
@@ -73,7 +73,7 @@ Please refer to following sections when developing components.
 
 All presentation components should respect the following convention upon creation:
 
-- PascalCased directory, containing:
+- `PascalCased` directory, containing:
   - `index.[j|t]s` file which exports default from the chosen `.[j|t]sx` file.
   - One or more `.[j|t]sx` component files.
 
@@ -89,7 +89,9 @@ MyComponent/my-component.jsx
 
 The usage of the index file is in place to better facilitate unit tests, and [bitsrc](https://bitsrc.io) integration.
 
-All other component files and directories should use lisp-casing.
+All other component files and directories should use `lisp-casing`.
+
+### Testing
 
 ### Best Practices
 
@@ -127,8 +129,6 @@ The application is configured to utilise [styled-components](https://styled-comp
 
 Please contact any of the following to propose changes/report issues;
 **David Christian Jones** - _UI Engineer_
-
-## Testing
 
 ---
 
