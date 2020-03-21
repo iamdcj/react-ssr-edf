@@ -1,6 +1,6 @@
 import "isomorphic-fetch";
 
-const fetchPageData = request => {
+const fetchComposition = (request: any) => {
   return fetch("https://partnership-site-api.sjp.co.uk/page/why-choose-us")
     .then(response => response.json())
     .then(data => {
@@ -11,4 +11,4 @@ const fetchPageData = request => {
     });
 };
 
-export default fetchPageData;
+export default fetchComposition;
