@@ -1,5 +1,7 @@
 # React SSR EDF
 
+[Repository](https://github.com/iamdcj/react-ssr-edf)
+
 ## Overview
 
 Project boilerplate intended for use with EDF SDLTridion powered React applications,
@@ -29,6 +31,8 @@ The base application is built with the following technologies:
 - [Express](https://expressjs.com/en/4x/api.html)
 - [TypeScript](https://www.typescriptlang.org/docs/home.html)
 
+This starter project does not prescribe a global state management solution. I've used [Redux](https://redux.js.org/) and MobX in the past, however the server-to-client store reconciliation could be achieved using the [Context API](https://reactjs.org/docs/context.html) and [Hooks](https://reactjs.org/docs/hooks-intro.html).
+
 ### Folder Structure
 
 #### Source
@@ -54,9 +58,9 @@ The following sections will help you get the application up-and-running.
 
 ### Installation
 
-1. Install Dependencies `yarn` or `npm install`
+1. Install Dependencies `yarn`.
 
-2. Generate environment variables `[yarn | npm] dotenvi -s <[local, development, production]>`
+2. Generate environment variables `yarn dotenvi -s <[local, development, production]>`
 
 ### Running the Application
 
@@ -66,7 +70,7 @@ Run application for _development_ or _production_:
 npm run start
 ```
 
-This will start the application using the configuration defined in `.env`.
+This command will start the application using the configuration defined in `.env`.
 
 ## Components
 
@@ -130,6 +134,6 @@ The application is configured to utilise [styled-components](https://styled-comp
 
 ##### Authors / Contributors
 
-Please contact any of the following to propose changes/report issues;
+Please contact any of the following to propose changes/report issues, or just create a [pull request](https://github.com/iamdcj/react-ssr-edf)) containing changes/improvements.
 
 - [David Christian Jones](https://github.com/iamdcj) _Senior UI Engineer_
