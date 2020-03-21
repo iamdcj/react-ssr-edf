@@ -1,41 +1,47 @@
 import React from "react";
 
 //* HELPERS
-import { scrollTopEl, returnDOMElement } from "../../_helpers/browser";
+import { scrollToTarget } from "../../_helpers/browser";
 
 //* DEPs.
 import { Link } from "react-router-dom";
 
-//* COMPONENTS
-import FontAwesomeIcon from "../_misc/fa-icon";
-
-const scrollToTarget = (e, selector) => {
-  e.preventDefault();
-
-  const _El = returnDOMElement(selector);
-
-  if (!_El) return;
-
-  scrollTopEl(_El);
-};
+interface CTA {
+  isExternal?: boolean;
+  link?: string;
+  to?: string;
+  anchor?: string;
+  onClick?: () => void;
+  title?: string;
+  className?: string;
+  type?: "button" | "submit" | "reset";
+  id?: "string";
+  role?: "string";
+  ariaexpanded?: boolean;
+  ariacontrols?: string;
+  ariaselected?: boolean;
+  tabIndex?: number;
+  text?: string;
+  hideText?: boolean;
+}
 
 let CTA = ({
   isExternal = false,
   link = "",
   to = "",
-  anchor = "",
+  anchor,
   onClick = () => {},
   title = "",
   className = "",
   type = "button",
-  id = "",
-  role = "",
-  ariaexpanded = null,
+  id,
+  role,
+  ariaexpanded = false,
   ariacontrols = "",
-  ariaselected = null,
-  tabIndex = null,
+  ariaselected = false,
+  tabIndex = 0,
   ...innards
-}) => {
+}: CTA) => {
   to = to ? to : link;
 
   if (anchor) {
@@ -43,7 +49,7 @@ let CTA = ({
       <a
         href={`#${anchor}`}
         className={className}
-        onClick={e => scrollToTarget(e, anchor)}
+        onClick={e => scrollToTarget(e as any, anchor)}
         title={title}
       >
         <CTAInnards {...innards} />
@@ -87,51 +93,17 @@ let CTA = ({
   }
 };
 
-const CTAInnards = ({
-  icon,
-  iconA,
-  iconB,
-  customIcon,
-  customIconA,
-  customIconB,
-  text,
-  hideText,
-  iconFamily
-}) => (
+interface CTAInnards {
+  text?: string;
+  hideText?: boolean;
+}
+
+const CTAInnards = ({ text, hideText }: CTAInnards) => (
   <>
-    {customIconA ? (
-      customIconA
-    ) : iconA ? (
-      <FontAwesomeIcon
-        family={iconFamily}
-        icon={iconA}
-        extraClasses="icon--left"
-      />
-    ) : (
-      ""
-    )}
     {text && (
       <span className={`btn__text ${hideText ? "visually--hidden" : ""}`}>
         {text}
       </span>
-    )}
-    {customIcon ? (
-      customIcon
-    ) : icon ? (
-      <FontAwesomeIcon iconFamily={iconFamily} icon={icon} />
-    ) : (
-      ""
-    )}
-    {customIconB ? (
-      customIconB
-    ) : iconB ? (
-      <FontAwesomeIcon
-        family={iconFamily}
-        icon={iconB}
-        extraClasses="icon--right"
-      />
-    ) : (
-      ""
     )}
   </>
 );

@@ -1,5 +1,5 @@
-import fetchPageData from "./fetchPageData";
+import fetchPageData from "./fetchComposition";
 
-export const hydrateApplication = request => {
+export const hydrateApplication = (request: any) => {
   return fetchPageData(request);
 };

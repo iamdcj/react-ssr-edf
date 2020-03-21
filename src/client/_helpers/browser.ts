@@ -28,6 +28,16 @@ export const scrollTopEl = (
   }
 };
 
+export const scrollToTarget = (e: Event, selector: string) => {
+  e.preventDefault();
+
+  const _El = returnDOMElement(selector);
+
+  if (!_El) return;
+
+  scrollTopEl(_El);
+};
+
 export const jumpToTop = () => {
   scrollTopEl(document.documentElement, false, "auto");
 };

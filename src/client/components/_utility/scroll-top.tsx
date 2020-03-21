@@ -26,7 +26,6 @@ const ScrollTop = () => {
           className="btn  btn--back-to-top btn--icon-animate-up"
           text="Return to page start."
           onClick={jumpToTop}
-          icon="chevron-up"
           hideText
         />
       )}
