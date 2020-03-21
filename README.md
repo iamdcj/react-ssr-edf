@@ -10,17 +10,15 @@ The base application contains the following built-in features;
 
 ✅ Server Side Rendered
 
-✅ Hot Module Reloaded (Universal)
+🔥 Hot Module Reloaded (Universal)
 
-✅ Docker
+🐳 [Docker](https://docs.docker.com/)
 
-✅ Environment Variables
+🃏 [Unit Testing](https://jestjs.io/docs/en/getting-started.html)
 
-✅ Unit Testing
+📕 [Storybook](https://storybook.js.org/)
 
-✅ Storybook
-
-✅ Styled Components
+💅🏻 [Styled Components](https://styled-components.com/)
 
 ### Core Technologies
 
