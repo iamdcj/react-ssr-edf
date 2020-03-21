@@ -1,4 +1,4 @@
-export default (
+const ErrorUI = (
   title = "Something went wrong",
   message = "Sorry about this, please try again later."
 ) =>
@@ -19,3 +19,5 @@ export default (
         </main>
       </body>
     </html>`;
+
+export default ErrorUI;
