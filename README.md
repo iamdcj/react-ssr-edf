@@ -8,23 +8,28 @@ Project boilerplate intended for use with EDF SDLTridion powered React applicati
 
 The base application contains the following built-in features;
 
-- ✅ Server Side Rendered
-- ✅ Hot Module Reloaded (Universal)
-- ✅ TypeScript
-- ✅ Docker
-- ✅ Environment Variables
-- ✅ Unit Testing
-- ✅ Storybook
-- ✅ Styled Components
+✅ Server Side Rendered
+
+✅ Hot Module Reloaded (Universal)
+
+✅ Docker
+
+✅ Environment Variables
+
+✅ Unit Testing
+
+✅ Storybook
+
+✅ Styled Components
 
 ### Core Technologies
 
 The base application is built with the following technologies:
 
-- React
-- React Router
-- Express
-- TypeScript
+- [React](https://github.com/facebook/react)
+- [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- [Express](https://expressjs.com/en/4x/api.html)
+- [TypeScript](https://www.typescriptlang.org/docs/home.html)
 
 ### Folder Structure
 
@@ -125,13 +130,8 @@ The application is configured to utilise [styled-components](https://styled-comp
 
 ---
 
-##### Authors
+##### Authors / Contributors
 
 Please contact any of the following to propose changes/report issues;
-**David Christian Jones** - _UI Engineer_
-
----
-
-##### Authors / Contributors
 
 - [David Christian Jones](https://github.com/iamdcj) _Senior UI Engineer_
