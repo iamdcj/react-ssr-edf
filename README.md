@@ -1,10 +1,8 @@
 # React SSR EDF
 
+Project boilerplate intended for use with EDF SDLTridion powered React applications.
+
 [Repository](https://github.com/iamdcj/react-ssr-edf)
-
-## Overview
-
-Project boilerplate intended for use with EDF SDLTridion powered React applications,
 
 ### Features
 
@@ -30,6 +28,7 @@ The base application is built with the following technologies:
 - [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
 - [Express](https://expressjs.com/en/4x/api.html)
 - [TypeScript](https://www.typescriptlang.org/docs/home.html)
+- [Webpack](https://webpack.js.org/guides/)
 
 This starter project does not prescribe a global state management solution. I've used [Redux](https://redux.js.org/) and MobX in the past, however the server-to-client store reconciliation could be achieved using the [Context API](https://reactjs.org/docs/context.html) and [Hooks](https://reactjs.org/docs/hooks-intro.html).
 
@@ -38,7 +37,7 @@ This starter project does not prescribe a global state management solution. I've
 #### Source
 
 - **src**:
-  - **\_type**: contains the application's interfaces and types.
+  - **\_types**: contains the application's interfaces and types.
   - **\_management**: contains all global state management code.
   - **\_router**: contains all routing logic.
   - **server**: contains all server-side application components.
@@ -120,11 +119,7 @@ Optional Chaining is available for use in the build, please **do the right thing
 
 ### State
 
-Please use [hooks](https://reactjs.org/docs/hooks-reference.html) where possible; I'm not against using `class`es with lifecycle methods, but most component state can easily be sorted using hooks.
-
-### Markup Conventions
-
-Please ensure semantic markup is used throughout when developing components.
+Please use [hooks](https://reactjs.org/docs/hooks-reference.html) where possible; I'm not against using `class`es with lifecycle methods, but most component state can be handled using hooks.
 
 ### Styling
 
@@ -132,7 +127,7 @@ The application is configured to utilise [styled-components](https://styled-comp
 
 ---
 
-##### Authors / Contributors
+#### Authors / Contributors
 
 Please contact any of the following to propose changes/report issues, or just create a [pull request](https://github.com/iamdcj/react-ssr-edf)) containing changes/improvements.
 
