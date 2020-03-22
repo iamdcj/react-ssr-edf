@@ -1,4 +1,4 @@
-const Body = (markup: string) => `
+const HTMLBody = (markup: string) => `
   <body>
     ${noScriptNotice()}
     <main id="root">${markup}</main>
@@ -17,4 +17,4 @@ const noScriptNotice = () => `
   </noscript>
 `;
 
-export default Body;
+export default HTMLBody;

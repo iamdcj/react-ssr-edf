@@ -3,7 +3,7 @@ import serialize from "serialize-javascript";
 
 import { Head } from "../../../_types";
 
-const Head = ({ helmet, data, scriptTags, styleTags }: Head) =>
+const HTMLHead = ({ helmet, data, scriptTags, styleTags }: Head) =>
   `<head>
     ${Meta(helmet)}
     ${Scripts(data, scriptTags)}
@@ -29,4 +29,4 @@ const Scripts = (data: JSON, scripts: string) => `
 
 const StyleSheets = (styleTags: string) => `${styleTags}`;
 
-export default Head;
+export default HTMLHead;

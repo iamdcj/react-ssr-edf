@@ -1,16 +1,16 @@
-import Head from "./head";
-import Body from "./body";
+import HTMLHead from "./head";
+import HTMLBody from "./body";
 import { Document } from "../../../_types";
 
-const Document = ({ markup, helmet, ...rest }: Document) => `
+const HTML = ({ markup, helmet, ...rest }: Document) => `
   <!DOCTYPE html>
   <html class="no-js" ${helmet.htmlAttributes.toString()}>
-      ${Head({ helmet, ...rest })}
-      ${Body(markup)}
+      ${HTMLHead({ helmet, ...rest })}
+      ${HTMLBody(markup)}
     <script>
       document.documentElement.classList.remove('no-js');
       document.documentElement.classList.add('js');
     </script>
   </html>`;
 
-export default Document;
+export default HTML;

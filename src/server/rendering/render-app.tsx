@@ -9,12 +9,13 @@ import { ServerStyleSheet } from "styled-components";
 import { ServerGet } from "../../_types";
 
 import App from "../App";
-import Document from "./document";
+import HTML from "./document";
 
 const path = require("path");
 const statsFile = path.resolve("public/loadable-stats.json");
 const extractor = new ChunkExtractor({ statsFile });
 const sheet = new ServerStyleSheet();
+e);
 
 export const renderApp = ({ req, res }: ServerGet) => {
   if (!req || !res) {
@@ -42,7 +43,7 @@ export const renderApp = ({ req, res }: ServerGet) => {
       const styleTags = sheet.getStyleTags();
       const scriptTags = extractor.getScriptTags();
 
-      const document = Document({
+      const document = HTML({
         helmet,
         markup,
         data,
