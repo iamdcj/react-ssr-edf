@@ -1,8 +1,26 @@
-const dev = require("./dev");
-const prod = require("./prod");
+const webpack = require("webpack");
+const path = require("path");
+const shared = require("../shared");
+const rules = require("../shared/rules");
+const plugins = require("../shared/plugins");
+const optimization = require("../shared/optimization");
 
-module.exports = mode => {
-  const isProduction = mode === "production";
+const publicPath = "../../../public";
 
-  return isProduction ? prod : dev;
-};
+module.exports = (env, mode) => ({
+  mode,
+  entry: "./src/client/index.tsx",
+  output: {
+    path: path.resolve(__dirname, publicPath),
+    filename: "app.js",
+    chunkFilename: "[name].chunk.js",
+    publicPath: "/"
+  },
+  optimization: {
+    ...optimization.returnOptimization(mode)
+  },
+  plugins: [...plugins.returnPlugins(env, mode)],
+  devtool: "source-map",
+  ...rules,
+  ...shared.resolve
+});
