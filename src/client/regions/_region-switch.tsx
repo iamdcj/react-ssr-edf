@@ -1,7 +1,7 @@
 import React from "react";
 
 import ErrorBoundary from "../components/_errors/_boundary";
-import ComponentSwitch from "client/components/_configuration/component-switch";
+import ComponentSwitch from "client/components/component-switch";
 
 import { Region, Fragment } from "../../_types";
 
