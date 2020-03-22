@@ -21,17 +21,17 @@
     "jsx-a11y/label-has-for": 0,
     "no-console": 0,
     "jsx-a11y/label-has-associated-control": 0,
+    "no-unused-vars": 1,
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".jsx"]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ]
   },
   "globals": {
+    "ENV": true,
     "window": true,
-    "document": true,
-    "__ClientSide__": true,
-    "__OCEP_ENV__": true
+    "document": true
   }
 }
