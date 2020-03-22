@@ -5,18 +5,15 @@ import {
   BasicTextWrapper
 } from "./BasicText.styles";
 
-import { Component } '../../../../_types'
+import { Component } from "../../../../_types";
 
 interface BasicText extends Component {}
 
-const BasicText ({ title, text }: BasicText) => (
+const BasicText = ({ title, text }: BasicText) => (
   <BasicTextContainer>
     <BasicTextWrapper>
-      {title && <BasicTextTitle title={title} />}
-      {
-        text &&
-        <span dangerouslySetInnerHTML={{ __html: text }} />
-      }
+      {title && <BasicTextTitle>{title}</BasicTextTitle>}
+      {text && <span dangerouslySetInnerHTML={{ __html: text }} />}
     </BasicTextWrapper>
   </BasicTextContainer>
 );
