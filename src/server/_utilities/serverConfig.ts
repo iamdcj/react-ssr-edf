@@ -2,9 +2,10 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import expressStaticGzip from "express-static-gzip";
+import { EnvVars } from "../../_constants";
 
 const app = express();
-const port = 3000;
+const port = EnvVars.PORT || 3001;
 
 app.use(cors());
 app.use(cookieParser());
