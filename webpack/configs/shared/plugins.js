@@ -7,29 +7,21 @@ const shared = require("../shared");
 
 const publicPath = "../../../public";
 
-const plugins = env => {
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`DEPT_EDF_${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {});
+const plugins = [
+  new CleanWebpackPlugin(["public"], {
+    root: path.join(__dirname, "../../")
+  }),
+  new CopyPlugin([
+    {
+      from: "./src/client/assets/",
+      to: path.resolve(__dirname, publicPath),
+      toType: "dir"
+    }
+  ]),
+  new LoadablePlugin()
+];
 
-  return [
-    new CleanWebpackPlugin(["public"], {
-      root: path.join(__dirname, "../../")
-    }),
-    new LoadablePlugin(),
-    new CopyPlugin([
-      {
-        from: "./src/client/assets/",
-        to: path.resolve(__dirname, publicPath),
-        toType: "dir"
-      }
-    ]),
-    new webpack.DefinePlugin(envKeys)
-  ];
-};
-
-module.exports.returnPlugins = (env, mode) => {
+module.exports.returnPlugins = mode => {
   const extraConfig = shared.isProduction(mode)
     ? [
         new CompressionPlugin({
@@ -46,5 +38,5 @@ module.exports.returnPlugins = (env, mode) => {
       ]
     : [];
 
-  return [...plugins(env), ...extraConfig];
+  return [...plugins, ...extraConfig];
 };

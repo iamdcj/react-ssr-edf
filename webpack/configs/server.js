@@ -1,9 +1,9 @@
-const path = require("path");
 const webpack = require("webpack");
+const path = require("path");
 const nodeExternals = require("webpack-node-externals");
 const shared = require("./shared");
 
-module.exports = mode => ({
+module.exports = (mode, definePlugin) => ({
   target: "node",
   mode,
   entry: "./src/server/index.ts",
@@ -12,6 +12,7 @@ module.exports = mode => ({
     filename: "index.js"
   },
   plugins: [
+    definePlugin,
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })

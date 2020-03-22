@@ -7,7 +7,7 @@ const optimization = require("../shared/optimization");
 
 const publicPath = "../../../public";
 
-module.exports = (env, mode) => ({
+module.exports = (mode, definePlugin) => ({
   mode,
   entry: "./src/client/index.tsx",
   output: {
@@ -19,7 +19,7 @@ module.exports = (env, mode) => ({
   optimization: {
     ...optimization.returnOptimization(mode)
   },
-  plugins: [...plugins.returnPlugins(env, mode)],
+  plugins: [...plugins.returnPlugins(mode), definePlugin],
   devtool: "source-map",
   ...rules,
   ...shared.resolve
