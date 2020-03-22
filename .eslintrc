@@ -30,7 +30,6 @@
     ]
   },
   "globals": {
-    "ENV": true,
     "window": true,
     "document": true
   }
