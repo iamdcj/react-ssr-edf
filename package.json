@@ -1,7 +1,7 @@
 {
-  "name": "gea-frontend-application",
+  "name": "react-ssr-edf",
   "version": "0.0.0",
-  "description": "SSR React Application for GEA",
+  "description": "SSR React Application for EDF Projects",
   "main": "webpack.config.js",
   "author": "David Christian Jones",
   "license": "MIT",
