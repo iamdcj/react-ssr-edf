@@ -1,14 +1,20 @@
 import React from "react";
+import loadable from "@loadable/component";
 
+// Hidden
 import Head from "./components/global/head";
 import RouteChange from "./components/global/route-change";
-import BasicText from "./components/presentation/BasicText";
+
+// Rendered
+const Header = loadable(() => import("./components/global/header"));
+const Footer = loadable(() => import("./components/global/footer"));
 
 const AppClient = () => (
   <>
     <Head />
     <RouteChange />
-    <BasicText title="React EDF" />
+    <Header />
+    <Footer />
   </>
 );
 
