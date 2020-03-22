@@ -13,7 +13,10 @@ const BasicText ({ title, text }: BasicText) => (
   <BasicTextContainer>
     <BasicTextWrapper>
       {title && <BasicTextTitle title={title} />}
-      <span dangerouslySetInnerHTML={{ __html: text }} />
+      {
+        text &&
+        <span dangerouslySetInnerHTML={{ __html: text }} />
+      }
     </BasicTextWrapper>
   </BasicTextContainer>
 );
