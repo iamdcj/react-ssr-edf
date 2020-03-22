@@ -15,7 +15,6 @@ const path = require("path");
 const statsFile = path.resolve("public/loadable-stats.json");
 const extractor = new ChunkExtractor({ statsFile });
 const sheet = new ServerStyleSheet();
-e);
 
 export const renderApp = ({ req, res }: ServerGet) => {
   if (!req || !res) {
