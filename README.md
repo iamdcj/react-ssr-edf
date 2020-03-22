@@ -10,7 +10,7 @@ The base application contains the following built-in features;
 
 ✅ Server Side Rendered
 
-🔥 Hot Module Reloaded (Universal)
+<!-- 🔥 Hot Module Replacement (**TODO**) -->
 
 🐳 [Docker](https://docs.docker.com/)
 
@@ -19,6 +19,8 @@ The base application contains the following built-in features;
 📕 [Storybook](https://storybook.js.org/)
 
 💅🏻 [Styled Components](https://styled-components.com/)
+
+<!-- 🧱 [Bit Components](https://bit.dev/) (**TODO**) -->
 
 ### Core Technologies
 
