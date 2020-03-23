@@ -12,7 +12,10 @@ import App from "../App";
 import HTML from "./document";
 
 const path = require("path");
-const statsFile = path.resolve("public/loadable-stats.json");
+const statsFile = path.resolve("./public/loadable-stats.json");
+
+console.log(statsFile);
+
 const extractor = new ChunkExtractor({ statsFile });
 const sheet = new ServerStyleSheet();
 

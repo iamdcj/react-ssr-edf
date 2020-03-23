@@ -1,15 +1,19 @@
 const webpack = require("webpack");
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
-const shared = require("./shared");
+const shared = require("../shared");
+
+const publicPath = "../../../server";
 
 module.exports = (mode, definePlugin) => ({
+  name: "server",
   target: "node",
   mode,
   entry: "./src/server/index.ts",
   output: {
-    path: path.resolve(__dirname, "../../server"),
-    filename: "index.js"
+    path: path.resolve(__dirname, publicPath),
+    filename: "index.js",
+    publicPath: ""
   },
   plugins: [
     definePlugin,

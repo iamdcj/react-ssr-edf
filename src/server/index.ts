@@ -11,7 +11,7 @@ app.get("*/sitemap.xml", (_, res) => {
   }
 });
 
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   try {
     renderApp({ req, res });
   } catch (error) {

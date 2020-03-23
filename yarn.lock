@@ -8738,6 +8738,11 @@ nwsapi@^2.2.0:
   resolved "https://registry.npmjs.org/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
   integrity sha512-h2AatdwYH+JHiZpv7pt/gSX1XoRGb7L/qSIeuqA6GwYoF9w1vP1cw42TO0aI2pNyshRK5893hNSl+1//vHK7hQ==
 
+o@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.npmjs.org/o/-/o-2.3.2.tgz#b9ff06868af6d5c875d5f1ce9574f998978d0753"
+  integrity sha512-KoP5gG518iPVmAwaxJBmc7f5NC/3cEaS4iCN5ynZDsw4gHJs4NJSiICDbSoxty6+xQ8/LFWatq6Yk3HhGKEGhA==
+
 oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
@@ -12046,7 +12051,7 @@ webpack-cli@^3.2.3:
     v8-compile-cache "2.0.3"
     yargs "13.2.4"
 
-webpack-dev-middleware@^3.7.0:
+webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
   version "3.7.2"
   resolved "https://registry.npmjs.org/webpack-dev-middleware/-/webpack-dev-middleware-3.7.2.tgz#0019c3db716e3fa5cecbf64f2ab88a74bab331f3"
   integrity sha512-1xC42LxbYoqLNAhV6YzTYacicgMZQTqRd27Sim9wn5hJrX3I5nxYy1SxSd4+gjUFsz1dQFj+yEe6zEVmSkeJjw==

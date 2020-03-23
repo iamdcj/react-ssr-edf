@@ -1,7 +1,7 @@
 import React from "react";
 import { loadableReady } from "@loadable/component";
 
-import { hydrate } from "react-dom";
+import { hydrate, render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import Router from "../_router/router";
@@ -14,7 +14,6 @@ const AppEntry = () => (
     <Router />
   </BrowserRouter>
 );
-
 const _Root = document.getElementById("root");
 loadableReady(() => hydrate(<AppEntry />, _Root));
 
