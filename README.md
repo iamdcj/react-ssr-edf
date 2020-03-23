@@ -8,7 +8,7 @@ Project boilerplate intended for use with EDF SDLTridion powered React applicati
 
 The base application contains the following built-in features;
 
-✅ Server Side Rendered
+⚛️ Server Side Rendered React
 
 <!-- 🔥 Hot Module Replacement (**TODO**) -->
 
