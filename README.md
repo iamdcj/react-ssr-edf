@@ -16,7 +16,7 @@ The base application contains the following built-in features;
 
 ✂ [Code Splitting](https://github.com/gregberge/loadable-components)
 
-🃏 [Unit Testing](https://jestjs.io/docs/en/getting-started.html)
+🧪 Testing: 🃏 [Jest](https://jestjs.io/docs/en/getting-started.html) | 🔬 [Enzyme](https://enzymejs.github.io/enzyme/)
 
 📕 [Storybook](https://storybook.js.org/)
 
@@ -33,6 +33,7 @@ The base application is built with the following technologies:
 - [Webpack](https://webpack.js.org/guides/)
 
 ### Global State
+
 This starter project does not prescribe a global state management solution. I've used [Redux](https://redux.js.org/) and [MobX](https://mobx.js.org/README.html) in the past, however the server-to-client store reconciliation could be achieved using the [Context API](https://reactjs.org/docs/context.html) and [Hooks](https://reactjs.org/docs/hooks-intro.html).
 
 ### Folder Structure
@@ -99,6 +100,7 @@ MyComponent/my-component.jsx
 **Eventually the majority of the presentation components will be pulled from some hosted solution, allowing for a core set of shareable components which can be extended on a project-by-project basis**
 
 ### Testing
+
 Something something jest. Something something enzyme.
 
 ### Best Practices
@@ -118,7 +120,6 @@ _Always_ check for presence of data before referencing.
 ```
 
 Optional Chaining is available for use in the build, please **do the right thing**.
-
 
 ### Styling
 
