@@ -10,7 +10,7 @@
     "lib": ["es6", "dom", "esnext"],
     "sourceMap": true,
     "allowJs": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "paths": {
       "*": ["../node_modules/@types/*", "*"]
