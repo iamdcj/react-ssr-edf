@@ -69,7 +69,7 @@ The following sections will help you get the application up-and-running.
 Run application for _development_ or _production_:
 
 ```
-npm run start
+yarn start
 ```
 
 This command will start the application using the configuration defined in `.env`.
