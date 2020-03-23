@@ -32,7 +32,8 @@ The base application is built with the following technologies:
 - [TypeScript](https://www.typescriptlang.org/docs/home.html)
 - [Webpack](https://webpack.js.org/guides/)
 
-This starter project does not prescribe a global state management solution. I've used [Redux](https://redux.js.org/) and MobX in the past, however the server-to-client store reconciliation could be achieved using the [Context API](https://reactjs.org/docs/context.html) and [Hooks](https://reactjs.org/docs/hooks-intro.html).
+### Global State
+This starter project does not prescribe a global state management solution. I've used [Redux](https://redux.js.org/) and [MobX](https://mobx.js.org/README.html) in the past, however the server-to-client store reconciliation could be achieved using the [Context API](https://reactjs.org/docs/context.html) and [Hooks](https://reactjs.org/docs/hooks-intro.html).
 
 ### Folder Structure
 
