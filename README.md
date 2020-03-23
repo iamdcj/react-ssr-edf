@@ -119,9 +119,6 @@ _Always_ check for presence of data before referencing.
 
 Optional Chaining is available for use in the build, please **do the right thing**.
 
-### State
-
-Please use [hooks](https://reactjs.org/docs/hooks-reference.html) where possible; I'm not against using `class`es with lifecycle methods, but most component state can be handled using hooks.
 
 ### Styling
 
