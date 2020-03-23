@@ -14,7 +14,7 @@ The base application contains the following built-in features;
 
 🐳 [Docker](https://docs.docker.com/)
 
-<✂️✨> [Code Splitting](https://github.com/gregberge/loadable-components)
+✂ [Code Splitting](https://github.com/gregberge/loadable-components)
 
 🃏 [Unit Testing](https://jestjs.io/docs/en/getting-started.html)
 
