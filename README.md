@@ -32,7 +32,8 @@ The base application is built with the following technologies:
 - [TypeScript](https://www.typescriptlang.org/docs/home.html)
 - [Webpack](https://webpack.js.org/guides/)
 
-This starter project does not prescribe a global state management solution. I've used [Redux](https://redux.js.org/) and MobX in the past, however the server-to-client store reconciliation could be achieved using the [Context API](https://reactjs.org/docs/context.html) and [Hooks](https://reactjs.org/docs/hooks-intro.html).
+### Global State
+This starter project does not prescribe a global state management solution. I've used [Redux](https://redux.js.org/) and [MobX](https://mobx.js.org/README.html) in the past, however the server-to-client store reconciliation could be achieved using the [Context API](https://reactjs.org/docs/context.html) and [Hooks](https://reactjs.org/docs/hooks-intro.html).
 
 ### Folder Structure
 
@@ -68,7 +69,7 @@ The following sections will help you get the application up-and-running.
 Run application for _development_ or _production_:
 
 ```
-npm run start
+yarn start
 ```
 
 This command will start the application using the configuration defined in `.env`.
@@ -100,6 +101,7 @@ The usage of the index file is in place to better facilitate unit tests, and [bi
 All other component files and directories should use `lisp-casing`.
 
 ### Testing
+Something something jest.
 
 ### Best Practices
 
@@ -119,9 +121,6 @@ _Always_ check for presence of data before referencing.
 
 Optional Chaining is available for use in the build, please **do the right thing**.
 
-### State
-
-Please use [hooks](https://reactjs.org/docs/hooks-reference.html) where possible; I'm not against using `class`es with lifecycle methods, but most component state can be handled using hooks.
 
 ### Styling
 
@@ -133,4 +132,4 @@ The application is configured to utilise [styled-components](https://styled-comp
 
 Please contact any of the following to propose changes/report issues, or just create a [pull request](https://github.com/iamdcj/react-ssr-edf)) containing changes/improvements.
 
-- [David Christian Jones](https://github.com/iamdcj) _Senior UI Engineer_
+- [David Christian Jones](https://github.com/iamdcj) - _Senior UI Engineer_
