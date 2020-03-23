@@ -76,7 +76,7 @@ This command will start the application using the configuration defined in `.env
 
 ## Components
 
-Please refer to following sections when developing components.
+Please refer to following sections when developing components;
 
 ### Setup
 
@@ -96,12 +96,10 @@ MyComponent/index.js
 MyComponent/my-component.jsx
 ```
 
-The usage of the index file is in place to better facilitate unit tests, and [bitsrc](https://bitsrc.io) integration.
-
-All other component files and directories should use `lisp-casing`.
+**Eventually the majority of the presentation components will be pulled from some hosted solution, allowing for a core set of shareable components which can be extended on a project-by-project basis**
 
 ### Testing
-Something something jest.
+Something something jest. Something something enzyme.
 
 ### Best Practices
 
