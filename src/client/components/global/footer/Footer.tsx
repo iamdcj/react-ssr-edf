@@ -1,8 +1,7 @@
-import React from "react";
-import { Component } from "../../../../_types";
+import React, { FC } from "react";
 
-interface footer extends Component {}
+interface footer {}
 
-const Footer = ({ title, text }: footer) => <footer>Footer</footer>;
+const Footer: FC<footer> = () => <footer>Footer</footer>;
 
 export default Footer;

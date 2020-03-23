@@ -1,11 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import { FeatureContainer, FeatureTitle, FeatureInner } from "./Feature.styles";
 
 import { Component } from "../../../../_types";
 
 interface Feature extends Component {}
 
-const Feature = ({ title, text }: Feature) => (
+const Feature: FC<Feature> = ({ title, text }) => (
   <FeatureContainer>
     <FeatureInner>
       {title && <FeatureTitle>{title}</FeatureTitle>}

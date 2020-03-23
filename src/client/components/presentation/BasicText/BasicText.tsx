@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import {
   BasicTextContainer,
   BasicTextTitle,
@@ -9,7 +9,7 @@ import { Component } from "../../../../_types";
 
 interface BasicText extends Component {}
 
-const BasicText = ({ title, text }: BasicText) => (
+const BasicText: FC<BasicText> = ({ title, text }) => (
   <BasicTextContainer>
     <BasicTextWrapper>
       {title && <BasicTextTitle>{title}</BasicTextTitle>}

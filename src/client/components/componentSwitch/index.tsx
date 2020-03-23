@@ -28,6 +28,8 @@ const returnComponent = (
   Component = loadable(() => import(`../presentation/${id}`));
   key = `${data.id}-${index}`;
 
+  console.log(Component);
+
   return (
     <ErrorBoundary key={key}>
       <Component

@@ -1,8 +1,7 @@
-import React from "react";
-import { Component } from "../../../../_types";
+import React, { FC } from "react";
 
-interface header extends Component {}
+interface header {}
 
-const Header = ({ title, text }: header) => <header>Header</header>;
+const Header: FC<header> = () => <header>Header</header>;
 
 export default Header;

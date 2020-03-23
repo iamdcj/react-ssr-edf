@@ -1,16 +1,16 @@
-import React from "react";
-import { CardContainer, CardTitle, CardWrapper } from "./Card.styles";
+import React, { FC } from "react";
+import { CardContainer, CardTitle, CardInner } from "./Card.styles";
 
 import { Component } from "../../../../_types";
 
 interface Card extends Component {}
 
-const Card = ({ title, text }: Card) => (
+const Card: FC<Card> = ({ title, text }) => (
   <CardContainer>
-    <CardWrapper>
+    <CardInner>
       {title && <CardTitle>{title}</CardTitle>}
       {text && <span dangerouslySetInnerHTML={{ __html: text }} />}
-    </CardWrapper>
+    </CardInner>
   </CardContainer>
 );
 
