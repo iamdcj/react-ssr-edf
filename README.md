@@ -101,6 +101,7 @@ The usage of the index file is in place to better facilitate unit tests, and [bi
 All other component files and directories should use `lisp-casing`.
 
 ### Testing
+Something something jest.
 
 ### Best Practices
 
@@ -131,4 +132,4 @@ The application is configured to utilise [styled-components](https://styled-comp
 
 Please contact any of the following to propose changes/report issues, or just create a [pull request](https://github.com/iamdcj/react-ssr-edf)) containing changes/improvements.
 
-- [David Christian Jones](https://github.com/iamdcj) _Senior UI Engineer_
+- [David Christian Jones](https://github.com/iamdcj) - _Senior UI Engineer_
