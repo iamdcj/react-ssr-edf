@@ -8,6 +8,7 @@ const HTMLHead = ({ helmet, data, scriptTags, styleTags }: Head) =>
     ${Meta(helmet)}
     ${Scripts(data, scriptTags)}
     ${StyleSheets(styleTags)}
+    <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/favicon.ico" />
   </head>
 `;

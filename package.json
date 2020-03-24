@@ -104,8 +104,8 @@
   },
   "scripts": {
     "build": "webpack  --config  webpack --watch --progress",
-    "serve": "node-dev server",
-    "start": "run-p build serve",
+    "serve": "node server",
+    "start": "yarn build & yarn serve",
     "serve:prod": "node server",
     "start:prod": "run-p build serve:prod",
     "test": "jest --watch",

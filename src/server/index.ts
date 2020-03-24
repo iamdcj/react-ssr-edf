@@ -5,6 +5,8 @@ import returnError from "./errors/returnError";
 import open from "open";
 import { ENV } from "../_constants";
 
+let isOpen = false;
+
 app.get("*/sitemap.xml", (_, res) => {
   try {
     renderSitemap(res);
@@ -13,19 +15,13 @@ app.get("*/sitemap.xml", (_, res) => {
   }
 });
 
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   try {
     renderApp({ req, res });
   } catch (error) {
     returnError(error, res);
   }
 });
-
-console.log(ENV);
-
-if (ENV === "development") {
-  open("http://localhost:3000");
-}
 
 app.listen(port, () =>
   console.info(`Coming to you live via http://localhost:${port}`)
