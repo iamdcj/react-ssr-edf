@@ -9717,7 +9717,7 @@ react-helmet-async@^1.0.2:
     react-fast-compare "^2.0.4"
     shallowequal "^1.1.0"
 
-react-helmet@^6.0.0:
+react-helmet@^6.0.0-beta.2:
   version "6.0.0-beta.2"
   resolved "https://registry.npmjs.org/react-helmet/-/react-helmet-6.0.0-beta.2.tgz#8f2d464472e405e5f04efe10883c384d826258b7"
   integrity sha512-rRAeil8HsddijqG2+1jeR5qY9wGQvK1zPMf+8MkiTCyhpEP/2qhAAPolEsveeAlz0xSv5C5xYypHtgCtFn0euw==
@@ -11107,6 +11107,11 @@ styled-components@^5.0.1:
     hoist-non-react-statics "^3.0.0"
     shallowequal "^1.1.0"
     supports-color "^5.5.0"
+
+styled-normalize@^8.0.7:
+  version "8.0.7"
+  resolved "https://registry.npmjs.org/styled-normalize/-/styled-normalize-8.0.7.tgz#e883bff6a0c59a65a39365a4eb9c6cf48372c61f"
+  integrity sha512-qQV4O7B9g7ZUnStCwGde7Dc/mcFF/pz0Ha/LL7+j/r6uopf6kJCmmR7jCPQMCBrDkYiQ4xvw1hUoceVJkdaMuQ==
 
 supports-color@6.1.0, supports-color@^6.1.0:
   version "6.1.0"
