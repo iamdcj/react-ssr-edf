@@ -6,7 +6,7 @@ const Head = ({
   language = "",
   canonical = "",
   keywords = "",
-  title = ""
+  title = "DEPT | React EDF start project"
 }) => {
   return (
     <Helmet>
