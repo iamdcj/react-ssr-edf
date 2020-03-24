@@ -108,7 +108,7 @@
     "start": "run-p build serve",
     "serve:prod": "node server",
     "start:prod": "run-p build serve:prod",
-    "test": "jest",
+    "test": "jest --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   }
