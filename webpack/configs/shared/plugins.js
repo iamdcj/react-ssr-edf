@@ -1,13 +1,14 @@
 const webpack = require("webpack");
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const LoadablePlugin = require("@loadable/webpack-plugin");
 const shared = require("../shared");
 
 const publicPath = "../../../public";
 
-const plugins = [
+const basePlugins = [
   new CleanWebpackPlugin(["public", "server"], {
     root: path.join(__dirname, "../../../")
   }),
@@ -21,22 +22,22 @@ const plugins = [
   new LoadablePlugin()
 ];
 
-module.exports.returnPlugins = mode => {
-  const extraConfig = shared.isProduction(mode)
-    ? [
-        new CompressionPlugin({
-          filename: "[path].br[query]",
-          algorithm: "brotliCompress",
-          test: /\.(js|css|html|svg)$/,
-          compressionOptions: {
-            level: 11
-          },
-          threshold: 10240,
-          minRatio: 0.8,
-          deleteOriginalAssets: false
-        })
-      ]
-    : [];
+const productionPlugins = [
+  new CompressionPlugin({
+    filename: "[path].br[query]",
+    algorithm: "brotliCompress",
+    test: /\.(js|css|html|svg)$/,
+    compressionOptions: {
+      level: 11
+    },
+    threshold: 10240,
+    minRatio: 0.8,
+    deleteOriginalAssets: false
+  })
+];
 
-  return [...plugins, ...extraConfig];
+module.exports.returnPlugins = mode => {
+  const config = shared.isProduction(mode) ? productionPlugins : [];
+
+  return [...basePlugins, ...config];
 };

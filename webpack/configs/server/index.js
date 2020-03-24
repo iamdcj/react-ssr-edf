@@ -1,7 +1,8 @@
 const webpack = require("webpack");
-const path = require("path");
 const nodeExternals = require("webpack-node-externals");
-const shared = require("../shared");
+const isProduction = require("../shared").isProduction;
+const path = require("path");
+const resolve = require("../shared").resolve;
 
 const entry = "./src/server/index.ts";
 const serverPath = "../../../server";
@@ -9,6 +10,7 @@ const serverPath = "../../../server";
 module.exports = (mode, definePlugin) => ({
   name: "server",
   target: "node",
+  watch: !isProduction(mode),
   mode,
   entry,
   output: {
@@ -31,5 +33,5 @@ module.exports = (mode, definePlugin) => ({
     ]
   },
   externals: nodeExternals(),
-  ...shared.resolve
+  ...resolve
 });
