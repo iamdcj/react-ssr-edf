@@ -11,12 +11,15 @@ module.exports = (mode, definePlugin) => ({
   name: "client",
   target: "web",
   mode,
-  entry: ["./src/client/index.tsx", "webpack-hot-middleware/client"],
+  entry: [
+    "webpack-hot-middleware/client?name=client",
+    "./src/client/index.tsx"
+  ],
   output: {
     path: path.resolve(__dirname, publicPath),
     filename: "app.js",
     chunkFilename: "[name].chunk.js",
-    publicPath: ""
+    publicPath: "/"
   },
   optimization: {
     ...optimization.returnOptimization(mode)
@@ -25,7 +28,8 @@ module.exports = (mode, definePlugin) => ({
     ...plugins.returnPlugins(mode),
     definePlugin,
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   devtool: "source-map",
   ...rules,

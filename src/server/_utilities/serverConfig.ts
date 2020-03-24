@@ -3,22 +3,23 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import expressStaticGzip from "express-static-gzip";
 import { PORT } from "../../_constants";
+import webpack from "webpack";
+import webpackDevMiddleware from "webpack-dev-middleware";
+import webpackHotMiddleware from "webpack-hot-middleware";
 
 const app = express();
 const port = PORT || 3001;
-
-const webpack = require("webpack");
 const webpackConfig = require("../../../webpack");
-const compiler = webpack(webpackConfig()[0]);
+const compiler = webpack(webpackConfig());
 
 app
   .use(
-    require("webpack-dev-middleware")(compiler, {
+    webpackDevMiddleware(compiler, {
       serverSideRender: true,
-      publicPath: ""
+      publicPath: "/"
     })
   )
-  .use(require("webpack-hot-middleware")(compiler))
+  .use(webpackHotMiddleware(compiler))
   .use(cors())
   .use(cookieParser())
   .use(

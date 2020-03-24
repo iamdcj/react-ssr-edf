@@ -10,10 +10,11 @@ module.exports = (mode, definePlugin) => ({
   target: "node",
   mode,
   entry: "./src/server/index.ts",
+
   output: {
     path: path.resolve(__dirname, publicPath),
     filename: "index.js",
-    publicPath: ""
+    publicPath: "/"
   },
   plugins: [
     definePlugin,

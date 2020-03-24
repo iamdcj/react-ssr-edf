@@ -105,7 +105,7 @@
   },
   "scripts": {
     "build": "webpack  --config  webpack --watch --progress",
-    "serve": "nodemon server",
+    "serve": "node server",
     "start": "run-p build serve",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
