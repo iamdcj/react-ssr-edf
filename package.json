@@ -26,6 +26,7 @@
     "intersection-observer": "^0.7.0",
     "isomorphic-fetch": "^2.2.1",
     "node-dev": "^4.0.0",
+    "open": "^7.0.3",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.1",
