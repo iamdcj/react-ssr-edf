@@ -6,10 +6,15 @@ const plugins = require("../shared/plugins");
 const optimization = require("../shared/optimization");
 
 const publicPath = "../../../public";
+const entry = "./src/client/index.tsx";
+
+console.log(path.resolve(__dirname));
 
 module.exports = (mode, definePlugin) => ({
+  name: "client",
+  target: "web",
   mode,
-  entry: "./src/client/index.tsx",
+  entry,
   output: {
     path: path.resolve(__dirname, publicPath),
     filename: "app.js",

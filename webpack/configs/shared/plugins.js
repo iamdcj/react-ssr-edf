@@ -8,8 +8,8 @@ const shared = require("../shared");
 const publicPath = "../../../public";
 
 const plugins = [
-  new CleanWebpackPlugin(["public"], {
-    root: path.join(__dirname, "../../")
+  new CleanWebpackPlugin(["public", "server"], {
+    root: path.join(__dirname, "../../../")
   }),
   new CopyPlugin([
     {

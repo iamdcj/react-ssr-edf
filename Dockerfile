@@ -14,4 +14,4 @@ RUN yarn dotenvi -s production
 RUN yarn
 
 # Execute Application
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "start:prod" ]

@@ -25,6 +25,7 @@
     "focus-trap-react": "^6.0.0",
     "intersection-observer": "^0.7.0",
     "isomorphic-fetch": "^2.2.1",
+    "node-dev": "^4.0.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.1",
@@ -88,7 +89,6 @@
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
     "jest": "^25.1.0",
-    "nodemon": "^1.18.9",
     "npm-run-all": "^4.1.5",
     "postcss-loader": "^2.1.6",
     "prettier": "^1.16.4",
@@ -103,8 +103,10 @@
   },
   "scripts": {
     "build": "webpack  --config  webpack --watch --progress",
-    "serve": "nodemon server",
+    "serve": "node-dev server",
     "start": "run-p build serve",
+    "serve:prod": "node server",
+    "start:prod": "run-p build serve:prod",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

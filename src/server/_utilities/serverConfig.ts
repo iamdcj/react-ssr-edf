@@ -7,8 +7,6 @@ import { PORT } from "../../_constants";
 const app = express();
 const port = PORT || 3001;
 
-console.log(PORT);
-
 app.use(cors());
 app.use(cookieParser());
 app.use(
