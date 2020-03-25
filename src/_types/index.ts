@@ -44,7 +44,7 @@ export interface Head {
   helmet: any;
   data: JSON;
   scriptTags: string;
-  styleTags: string;
+  styles: any;
 }
 
 export interface Document extends Head {

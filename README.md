@@ -20,7 +20,7 @@ The base application contains the following built-in features;
 
 📕 [Storybook](https://storybook.js.org/)
 
-💅🏻 [Styled Components](https://styled-components.com/)
+💅🏻 [Emotion](https://emotion.sh/docs/introduction)
 
 ### Core Technologies
 

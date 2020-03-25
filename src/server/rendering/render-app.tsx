@@ -5,16 +5,21 @@ import { renderToString } from "react-dom/server";
 import { Helmet } from "react-helmet";
 import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
 import { hydrateApplication } from "../../_management/actions/hydrateApplication";
-import { ServerStyleSheet } from "styled-components";
+import { CacheProvider } from "@emotion/core";
 import { ServerGet } from "../../_types";
+import createEmotionServer from "create-emotion-server";
+import createCache from "@emotion/cache";
 
 import App from "../App";
 import HTML from "./document";
 
+// Styles
+const cache = createCache();
+const { extractCritical } = createEmotionServer(cache);
+
 const path = require("path");
 const statsFile = path.resolve("public/loadable-stats.json");
 const extractor = new ChunkExtractor({ statsFile });
-const sheet = new ServerStyleSheet();
 
 export const renderApp = ({ req, res }: ServerGet) => {
   if (!req || !res) {
@@ -25,28 +30,39 @@ export const renderApp = ({ req, res }: ServerGet) => {
     .then((data: any) => {
       const context = {};
       let markup = "";
+      let styleIDs: string[] | null = null;
+      let stylesheet: string = "";
 
       try {
-        const styledApp = sheet.collectStyles(
+        const app = (
           <ChunkExtractorManager extractor={extractor}>
-            <App path={req.path} context={context} />
+            <CacheProvider value={cache}>
+              <App path={req.path} context={context} />
+            </CacheProvider>
           </ChunkExtractorManager>
         );
 
-        markup = renderToString(styledApp);
+        const { html, ids, css } = extractCritical(renderToString(app));
+
+        styleIDs = ids;
+        stylesheet = css;
+        markup = html;
       } catch (error) {
         console.error("Rendering Error");
       }
 
       const helmet = Helmet.renderStatic();
-      const styleTags = sheet.getStyleTags();
+
+      const styles = { styleIDs, stylesheet };
       const scriptTags = extractor.getScriptTags();
+
+      console.log(styles);
 
       const document = HTML({
         helmet,
         markup,
         data,
-        styleTags,
+        styles,
         scriptTags
       });
 

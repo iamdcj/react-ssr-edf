@@ -7,6 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@loadable/component": "^5.12.0",
     "@loadable/server": "^5.12.0",
     "@types/enzyme": "^3.10.5",
@@ -21,6 +23,9 @@
     "classnames": "^2.2.6",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
+    "create-emotion-server": "^10.0.27",
+    "emotion": "^10.0.27",
+    "emotion-normalize": "^10.1.0",
     "express-static-gzip": "^2.0.6",
     "focus-trap-react": "^6.0.0",
     "intersection-observer": "^0.7.0",
@@ -35,8 +40,6 @@
     "react-toast-notifications": "^2.4.0",
     "react-transition-group": "^2.5.3",
     "serialize-javascript": "^3.0.0",
-    "styled-components": "^5.0.1",
-    "styled-normalize": "^8.0.7",
     "throttle-debounce": "^2.1.0",
     "universal-cookie": "^2.2.0"
   },
