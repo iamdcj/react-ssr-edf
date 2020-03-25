@@ -5,6 +5,17 @@
   "main": "webpack.config.js",
   "author": "David Christian Jones",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack",
+    "serve": "node-dev server",
+    "devServe": "webpack-dev-server --config webpack",
+    "start": "yarn build & yarn serve & yarn devServe",
+    "serve:prod": "node server",
+    "start:prod": "yarn build && yarn serve:prod",
+    "test": "jest --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@loadable/component": "^5.12.0",
@@ -25,17 +36,22 @@
     "focus-trap-react": "^6.0.0",
     "intersection-observer": "^0.7.0",
     "isomorphic-fetch": "^2.2.1",
+    "node-dev": "^4.0.0",
+    "open": "^7.0.3",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "react-helmet": "^5.2.1",
+    "react-helmet": "^6.0.0-beta.2",
+    "react-hot-loader": "^4.12.20",
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
     "react-toast-notifications": "^2.4.0",
     "react-transition-group": "^2.5.3",
     "serialize-javascript": "^3.0.0",
     "styled-components": "^5.0.1",
+    "styled-normalize": "^8.0.7",
     "throttle-debounce": "^2.1.0",
-    "universal-cookie": "^2.2.0"
+    "universal-cookie": "^2.2.0",
+    "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -88,8 +104,6 @@
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
     "jest": "^25.1.0",
-    "nodemon": "^1.18.9",
-    "npm-run-all": "^4.1.5",
     "postcss-loader": "^2.1.6",
     "prettier": "^1.16.4",
     "react-test-renderer": "^16.13.1",
@@ -99,16 +113,6 @@
     "webpack": "^4.29.6",
     "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-middleware": "^3.7.2",
-    "webpack-hot-middleware": "^2.25.0",
     "webpack-node-externals": "^1.7.2"
-  },
-  "scripts": {
-    "build": "webpack  --config  webpack --watch --progress",
-    "serve": "node server",
-    "start": "run-p build serve",
-    "test": "jest",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
   }
 }

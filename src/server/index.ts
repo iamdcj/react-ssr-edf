@@ -19,6 +19,6 @@ app.get("/", (req, res) => {
   }
 });
 
-app.listen(port, () =>
-  console.info(`Coming to you live via http://localhost:${port}`)
+app.listen(3001, () =>
+  console.info(`Coming to you live via http://localhost:${3001}`)
 );
