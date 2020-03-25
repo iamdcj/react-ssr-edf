@@ -14,7 +14,11 @@ class ErrorBoundary extends Component {
       return null;
     }
 
-    return <>{this.props.children}</>;
+    try {
+      return this.props.children;
+    } catch (error) {
+      return null;
+    }
   }
 }
 
