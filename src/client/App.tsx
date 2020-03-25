@@ -6,9 +6,9 @@ import { GlobalStyles } from "./_styles";
 // Hidden
 import Head from "./components/global/head";
 import RouteChange from "./components/global/route-change";
-const RegionSwitch = loadable(() => import("./regions/_region-switch"));
 
 // Rendered
+const RegionSwitch = loadable(() => import("./regions/_region-switch"));
 const Header = loadable(() => import("./components/global/header"));
 const Footer = loadable(() => import("./components/global/footer"));
 
@@ -222,92 +222,6 @@ const AppClient = () => (
             }
           ],
           id: "Main",
-          extendedProperties: {
-            params: null
-          }
-        },
-        {
-          regions: [
-            {
-              regions: [],
-              fragments: [
-                {
-                  content: {
-                    logo: {
-                      link: {
-                        url: "/",
-                        text: "Logo",
-                        altText: "Logo"
-                      },
-                      image: {
-                        alternateText: "St. James’s Place logo",
-                        caption: "",
-                        mediaType: "Image",
-                        url:
-                          "https://partnership-assets.sjp.co.uk/api/v1/site/9/image?imageUrl=/media/SJPWM-Hor-White_tcm9-5897.svg",
-                        fileSize: 20829,
-                        mimeType: "image/svg+xml"
-                      }
-                    },
-                    siteLink: [
-                      {
-                        url:
-                          "https://www.sjp.co.uk/site-services/privacy-policy",
-                        text: "Privacy policy",
-                        target: "_blank"
-                      },
-                      {
-                        url: "/legal/site-disclaimer",
-                        text: "Site disclaimer",
-                        target: "_self"
-                      },
-                      {
-                        url: "/legal/accessibility",
-                        text: "Accessibility",
-                        target: "_self"
-                      },
-                      {
-                        url: "/legal/terms-and-conditions",
-                        text: "Terms and Conditions",
-                        target: "_self"
-                      }
-                    ],
-                    footerLink: [
-                      {
-                        url: "https://www.sjp.co.uk",
-                        text: "Visit SJP.co.uk",
-                        target: "_blank"
-                      },
-                      {
-                        url: "https://www.sjp.co.uk/site-services/contact-us",
-                        text: "Contact SJP",
-                        target: "_blank"
-                      }
-                    ],
-                    copyright: "Copyright St. James's Place © 2020",
-                    backToTop: "Back To Top",
-                    inlineEditMarkup:
-                      '<!-- Start Component Presentation: {"ComponentID":"tcm:9-623","ComponentModified":"2019-11-25T12:34:35.26","ComponentTemplateID":"tcm:9-618-32","ComponentTemplateModified":"2019-11-27T13:32:50.663","IsRepositoryPublished":false} -->'
-                  },
-                  template: {
-                    content: {
-                      params: null
-                    },
-                    id: "SubdomainFooter",
-                    extendedProperties: {}
-                  },
-                  id: "623",
-                  extendedProperties: {}
-                }
-              ],
-              id: "Main",
-              extendedProperties: {
-                params: null
-              }
-            }
-          ],
-          fragments: [],
-          id: "Footer",
           extendedProperties: {
             params: null
           }

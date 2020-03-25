@@ -63,8 +63,8 @@ export const GlobalStyles = () => (
         }
 
         ul {
-          padding: 0;
-          margin: 0;
+          padding: 0 0 0 20px;
+          margin: 0 0 18px;
         }
       `}
     />
