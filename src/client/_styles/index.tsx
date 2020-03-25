@@ -36,6 +36,26 @@ export const GlobalStyles = () => (
           margin: 0 0 18px;
         }
 
+        .notification {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 100%;
+          background: #e24059;
+        }
+
+        .notification__inner {
+          text-align: center;
+          padding: 30px 20px 18px 20px;
+          color: #fff;
+          max-width: 1200px;
+        }
+
+        .notification__inner a {
+          color: #fff;
+        }
+
         *,
         *:before,
         *:after {
