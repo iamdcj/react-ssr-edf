@@ -23,9 +23,9 @@ const returnComponent = (
 
   // This feels dirty
   try {
-    Component.load();
+    Component.preload();
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
     return null;
   }
 
