@@ -4,10 +4,10 @@ const resolve = require("../shared").resolve;
 const plugins = require("../shared/plugins");
 const optimization = require("../shared/optimization");
 const isProduction = require("../shared").isProduction;
+
+// Config. vars
 const publicPath = "../../../public";
 const entry = "./src/client/index.tsx";
-
-console.log(path.resolve(__dirname));
 
 module.exports = (mode, definePlugin) => ({
   name: "client",

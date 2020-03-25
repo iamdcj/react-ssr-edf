@@ -4,6 +4,7 @@ const isProduction = require("../shared").isProduction;
 const path = require("path");
 const resolve = require("../shared").resolve;
 
+// Config. vars
 const entry = "./src/server/index.ts";
 const serverPath = "../../../server";
 
