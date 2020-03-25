@@ -8,8 +8,5 @@ module.exports = () => {
   const { ENV = "production" } = envVars;
   const definePlugin = returnDefinePlugin(envVars);
 
-  console.log(client(ENV, definePlugin));
-  console.log(server(ENV, definePlugin));
-
   return [client(ENV, definePlugin), server(ENV, definePlugin)];
 };

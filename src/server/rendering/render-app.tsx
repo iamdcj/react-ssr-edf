@@ -48,15 +48,13 @@ export const renderApp = ({ req, res }: ServerGet) => {
         stylesheet = css;
         markup = html;
       } catch (error) {
-        console.error("Rendering Error");
+        console.error(error);
       }
 
       const helmet = Helmet.renderStatic();
 
       const styles = { styleIDs, stylesheet };
       const scriptTags = extractor.getScriptTags();
-
-      console.log(styles);
 
       const document = HTML({
         helmet,
