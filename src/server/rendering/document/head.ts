@@ -34,6 +34,9 @@ const StyleSheets = ({
 }: {
   styleIDs: string[];
   stylesheet: string;
-}) => `<style data-emotion-css="${styleIDs.join(" ")}">${stylesheet}</style>`;
+}) =>
+  stylesheet
+    ? `<style data-emotion-css="${styleIDs.join(" ")}">${stylesheet}</style>`
+    : "";
 
 export default HTMLHead;

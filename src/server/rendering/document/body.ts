@@ -1,7 +1,7 @@
 const HTMLBody = (markup: string) => `
   <body>
     ${noScriptNotice()}
-    <main id="root">${markup}</main>
+    <div id="root">${markup}</div>
     <div id="modal-root"></div>
   </body>
 `;
