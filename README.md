@@ -4,13 +4,40 @@ Project boilerplate intended for use with EDF SDLTridion powered React applicati
 
 [Repository](https://github.com/iamdcj/react-ssr-edf)
 
+## Getting Started
+
+The following sections will help you get the application up-and-running.
+
+### Installation
+
+1. Install Dependencies `yarn`.
+
+2. Generate environment variables `yarn dotenvi -s <[local, development, production]>`
+
+### Running the Application
+
+**_development_**
+This will run the application in development mode, (eventually)providing HMR replacement;
+
+```
+yarn start
+```
+
+**_production_**
+
+This will run an optimized, production-ready instance of the application;
+
+```
+yarn start:prod
+```
+
 ### Features
 
 The base application contains the following built-in features;
 
 ⚛️ Server Side Rendered React
 
-<!-- 🔥 Hot Module Replacement (**TODO**) -->
+🔥 Hot Module Replacement (**TODO**)
 
 🐳 [Docker](https://docs.docker.com/)
 
@@ -52,28 +79,6 @@ This starter project does not prescribe a global state management solution. I've
 
 - **public**: contains build files for client-side usage.
 - **server**: contains build files for server-side usage.
-
----
-
-## Getting Started
-
-The following sections will help you get the application up-and-running.
-
-### Installation
-
-1. Install Dependencies `yarn`.
-
-2. Generate environment variables `yarn dotenvi -s <[local, development, production]>`
-
-### Running the Application
-
-Run application for _development_ or _production_:
-
-```
-yarn start
-```
-
-This command will start the application using the configuration defined in `.env`.
 
 ## Components
 
