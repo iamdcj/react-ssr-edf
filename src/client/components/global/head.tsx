@@ -5,7 +5,7 @@ const Head = ({
   description = "",
   language = "",
   canonical_url = "",
-  title = "React SRR EDF Starter",
+  title = "React SSR EDF Starter",
   ...rest
 }) => (
   <Helmet>
