@@ -1,4 +1,4 @@
-import React, { JSXElementConstructor } from "react";
+import React from "react";
 
 import loadable, { LoadableComponent } from "@loadable/component";
 
@@ -13,37 +13,37 @@ const returnComponent = (
 ) => {
   const { id } = data.template;
 
-  // to fix
-  let Component:
-    | LoadableComponent<{}>
-    | React.ComponentType
-    | null
-    | any = null;
-  let key: string | number = index;
-
-  if (!name) {
-    return Component;
+  if (!id) {
+    return null;
   }
 
-  Component = loadable(() => import(`../presentation/${id}`));
-  key = `${data.id}-${index}`;
+  const Component: LoadableComponent<any> = loadable(() =>
+    import(`../presentation/${id}`)
+  );
 
-  console.log(Component);
+  // This feels dirty
+  try {
+    Component.preload();
+  } catch (error) {
+    console.error(error.message);
+    return null;
+  }
 
   return (
-    <ErrorBoundary key={key}>
-      <Component
-        firstComponent={index === 0}
-        lastComponent={index + 1 === componentCount}
-      />
-    </ErrorBoundary>
+    <Component
+      {...data.content}
+      firstComponent={index === 0}
+      lastComponent={index + 1 === componentCount}
+    />
   );
 };
 
 const ComponentSwitch = ({ components }: { components: Fragment[] }) => (
   <>
     {components.map((component: Fragment, index: number) => (
-      <>{returnComponent(component, index, components.length)}</>
+      <ErrorBoundary key={index}>
+        {returnComponent(component, index, components.length) || null}
+      </ErrorBoundary>
     ))}
   </>
 );

@@ -34,7 +34,7 @@ interface Template {
 }
 
 export interface Region {
-  id: "string";
+  id: string;
   fragments: any[];
   extendedProperties: any;
   regions: Region[];
@@ -44,7 +44,7 @@ export interface Head {
   helmet: any;
   data: JSON;
   scriptTags: string;
-  styleTags: string;
+  styles: any;
 }
 
 export interface Document extends Head {

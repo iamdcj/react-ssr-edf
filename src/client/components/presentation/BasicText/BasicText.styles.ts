@@ -1,9 +1,5 @@
-import styled from "styled-components";
-
-const BasicTextContainer = styled.section``;
-
-const BasicTextWrapper = styled.div``;
+import styled from "@emotion/styled";
 
 const BasicTextTitle = styled.h2``;
 
-export { BasicTextContainer, BasicTextWrapper, BasicTextTitle };
+export { BasicTextTitle };

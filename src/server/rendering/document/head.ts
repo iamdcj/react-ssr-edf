@@ -3,12 +3,13 @@ import serialize from "serialize-javascript";
 
 import { Head } from "../../../_types";
 
-const HTMLHead = ({ helmet, data, scriptTags, styleTags }: Head) =>
+const HTMLHead = ({ helmet, data, scriptTags, styles }: Head) =>
   `<head>
     ${Meta(helmet)}
-    ${Scripts(data, scriptTags)}
-    ${StyleSheets(styleTags)}
     <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json">
+    ${Scripts(data, scriptTags)}
+    ${StyleSheets(styles)}
   </head>
 `;
 
@@ -27,6 +28,15 @@ const Scripts = (data: JSON, scripts: string) => `
   </script>
 `;
 
-const StyleSheets = (styleTags: string) => `${styleTags}`;
+const StyleSheets = ({
+  styleIDs,
+  stylesheet
+}: {
+  styleIDs: string[];
+  stylesheet: string;
+}) =>
+  stylesheet
+    ? `<style data-emotion-css="${styleIDs.join(" ")}">${stylesheet}</style>`
+    : "";
 
 export default HTMLHead;

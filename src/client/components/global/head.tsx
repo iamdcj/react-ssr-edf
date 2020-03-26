@@ -4,19 +4,19 @@ import { Helmet } from "react-helmet";
 const Head = ({
   description = "",
   language = "",
-  canonical = "",
-  keywords = "",
-  title = ""
-}) => {
-  return (
-    <Helmet>
-      <html lang={language} />
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      {canonical && <link rel="canonical" href={canonical} />}
-    </Helmet>
-  );
-};
+  canonical_url = "",
+  title = "React SRR EDF Starter",
+  ...rest
+}) => (
+  <Helmet>
+    <html lang={language} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical_url && <link rel="canonical" href={canonical_url} />}
+    {Object.entries(rest).map(([key, value]) => (
+      <meta key={key} property={key} content={value} />
+    ))}
+  </Helmet>
+);
 
 export default Head;

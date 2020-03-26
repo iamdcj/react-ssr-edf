@@ -1,17 +1,20 @@
 import React, { FC } from "react";
-import { FeatureContainer, FeatureTitle, FeatureInner } from "./Feature.styles";
-
 import { Component } from "../../../../_types";
 
-interface Feature extends Component {}
+import { FeatureTitle } from "./Feature.styles";
+import { ComponentContainer, ComponentInner } from "../../_styles";
 
-const Feature: FC<Feature> = ({ title, text }) => (
-  <FeatureContainer>
-    <FeatureInner>
+interface Feature extends Component {
+  subTitle: string;
+}
+
+const Feature: FC<Feature> = ({ title, subTitle }) => (
+  <ComponentContainer>
+    <ComponentInner>
       {title && <FeatureTitle>{title}</FeatureTitle>}
-      {text && <span dangerouslySetInnerHTML={{ __html: text }} />}
-    </FeatureInner>
-  </FeatureContainer>
+      {subTitle && <p>{subTitle}</p>}
+    </ComponentInner>
+  </ComponentContainer>
 );
 
 export default Feature;

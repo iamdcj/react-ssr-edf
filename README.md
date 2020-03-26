@@ -20,7 +20,7 @@ The base application contains the following built-in features;
 
 📕 [Storybook](https://storybook.js.org/)
 
-💅🏻 [Styled Components](https://styled-components.com/)
+💅🏻 [Emotion](https://emotion.sh/docs/introduction)
 
 ### Core Technologies
 
@@ -123,7 +123,7 @@ Optional Chaining is available for use in the build, please **do the right thing
 
 ### Styling
 
-The application is configured to utilise [styled-components](https://styled-components.com/).
+The application is configured to utilise [Emotion](https://emotion.sh/docs/introduction)
 
 ---
 

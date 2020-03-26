@@ -10,15 +10,16 @@ const entry = "./index.tsx";
 
 console.log(path.resolve(__dirname));
 
-module.exports = (mode, definePlugin) => ({
+module.exports = (mode = "development", definePlugin) => ({
   name: "client",
   target: "web",
   mode,
+  watch: true,
   context: path.resolve(__dirname, "../../../src/client"),
   watchOptions: {
     ignored: ["/node_modules/"]
   },
-  entry: ["webpack-dev-server/client?http://localhost:3001", entry],
+  entry: ["webpack-dev-server/client?http://localhost:3000", entry],
   devServer: {
     proxy: {
       "**": {
@@ -40,7 +41,7 @@ module.exports = (mode, definePlugin) => ({
   optimization: {
     ...optimization.returnOptimization(mode)
   },
-  plugins: [definePlugin, ...plugins.returnPlugins(mode)],
+  plugins: [...plugins.returnPlugins(mode)],
   devtool: isProduction(mode) ? "" : "source-map",
   module: {
     rules: [
