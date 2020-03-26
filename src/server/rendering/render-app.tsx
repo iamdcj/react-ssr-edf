@@ -18,7 +18,10 @@ const cache = createCache();
 const { extractCritical } = createEmotionServer(cache);
 
 const path = require("path");
-const statsFile = path.resolve("public/loadable-stats.json");
+const statsFile = path.resolve("./public/loadable-stats.json");
+
+console.log(statsFile);
+
 const extractor = new ChunkExtractor({ statsFile });
 
 export const renderApp = ({ req, res }: ServerGet) => {

@@ -1,25 +1,22 @@
 const webpack = require("webpack");
-const nodeExternals = require("webpack-node-externals");
-const isProduction = require("../shared").isProduction;
 const path = require("path");
-const resolve = require("../shared").resolve;
+const nodeExternals = require("webpack-node-externals");
+const shared = require("../shared");
 
-// Config. vars
-const entry = "./src/server/index.ts";
-const serverPath = "../../../server";
+const publicPath = "../../../server";
 
 module.exports = (mode, definePlugin) => ({
   name: "server",
   target: "node",
-  watch: !isProduction(mode),
+  watch: true,
   mode,
-  entry,
+  entry: "./src/server/index.ts",
   output: {
-    path: path.resolve(__dirname, serverPath),
-    filename: "index.js"
+    path: path.resolve(__dirname, publicPath),
+    filename: "index.js",
+    publicPath: "/"
   },
   plugins: [
-    definePlugin,
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
@@ -34,5 +31,5 @@ module.exports = (mode, definePlugin) => ({
     ]
   },
   externals: nodeExternals(),
-  ...resolve
+  ...shared.resolve
 });

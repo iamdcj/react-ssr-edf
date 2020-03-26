@@ -4,19 +4,33 @@ const resolve = require("../shared").resolve;
 const plugins = require("../shared/plugins");
 const optimization = require("../shared/optimization");
 const isProduction = require("../shared").isProduction;
-
-// Config. vars
 const publicPath = "../../../public";
-const entry = "./src/client/index.tsx";
 
-module.exports = (mode, definePlugin) => ({
+const entry = "./index.tsx";
+
+console.log(path.resolve(__dirname));
+
+module.exports = (mode = "development", definePlugin) => ({
   name: "client",
   target: "web",
   mode,
-  entry,
-  watch: !isProduction(mode),
+  watch: true,
+  context: path.resolve(__dirname, "../../../src/client"),
   watchOptions: {
     ignored: ["/node_modules/"]
+  },
+  entry: ["webpack-dev-server/client?http://localhost:3000", entry],
+  devServer: {
+    proxy: {
+      "**": {
+        target: `http://localhost:3001`
+      }
+    },
+    open: true,
+    hot: true,
+    inline: true,
+    port: 3000,
+    hot: true
   },
   output: {
     path: path.resolve(__dirname, publicPath),
@@ -27,7 +41,7 @@ module.exports = (mode, definePlugin) => ({
   optimization: {
     ...optimization.returnOptimization(mode)
   },
-  plugins: [definePlugin, ...plugins.returnPlugins(mode)],
+  plugins: [...plugins.returnPlugins(mode)],
   devtool: isProduction(mode) ? "" : "source-map",
   module: {
     rules: [

@@ -5,6 +5,17 @@
   "main": "webpack.config.js",
   "author": "David Christian Jones",
   "license": "MIT",
+  "scripts": {
+    "serve": "webpack --config webpack/configs/server",
+    "build": "webpack --config webpack/configs/client",
+    "devServe": "webpack-dev-server --config webpack",
+    "start": "yarn serve & yarn build & node-dev server & yarn devServe",
+    "serve:prod": "node server",
+    "start:prod": "yarn build && yarn serve:prod",
+    "test": "jest --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@emotion/babel-preset-css-prop": "^10.0.27",
@@ -42,7 +53,8 @@
     "react-transition-group": "^2.5.3",
     "serialize-javascript": "^3.0.0",
     "throttle-debounce": "^2.1.0",
-    "universal-cookie": "^2.2.0"
+    "universal-cookie": "^2.2.0",
+    "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -104,15 +116,5 @@
     "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3",
     "webpack-node-externals": "^1.7.2"
-  },
-  "scripts": {
-    "build": "webpack  --config  webpack  --progress",
-    "serve": "node-dev server",
-    "start": "yarn build & yarn serve",
-    "serve:prod": "node server",
-    "start:prod": "yarn build && yarn serve:prod",
-    "test": "jest --watch",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
   }
 }

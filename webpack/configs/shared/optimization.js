@@ -1,5 +1,4 @@
-const TerserPlugin = require("terser-webpack-plugin");
-const isProduction = require("../shared").isProduction;
+const shared = require("../shared");
 
 const splitChunks = {
   splitChunks: {
@@ -13,26 +12,26 @@ const splitChunks = {
   }
 };
 
-const minification = {
-  minimizer: [
-    new TerserPlugin({
-      terserOptions: {
-        output: {
-          comments: false
-        },
-        compress: {
-          drop_console: true
-        }
-      }
-    })
-  ]
-};
-
 module.exports.returnOptimization = mode => {
-  const config = isProduction(mode) ? minification : {};
+  const extraConfig = shared.isProduction(mode)
+    ? {
+        minimizer: [
+          new TerserPlugin({
+            terserOptions: {
+              output: {
+                comments: false
+              },
+              compress: {
+                drop_console: true
+              }
+            }
+          })
+        ]
+      }
+    : {};
 
   return {
     ...splitChunks,
-    ...config
+    ...extraConfig
   };
 };
