@@ -9,9 +9,6 @@ const shared = require("../shared");
 const publicPath = "../../../public";
 
 const basePlugins = [
-  new CleanWebpackPlugin(["public", "server"], {
-    root: path.join(__dirname, "../../../")
-  }),
   new CopyPlugin([
     {
       from: "./src/client/assets/",
@@ -23,6 +20,9 @@ const basePlugins = [
 ];
 
 const productionPlugins = [
+  new CleanWebpackPlugin(["public", "server"], {
+    root: path.join(__dirname, "../../../")
+  }),
   new CompressionPlugin({
     filename: "[path].br[query]",
     algorithm: "brotliCompress",

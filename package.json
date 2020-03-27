@@ -5,6 +5,16 @@
   "main": "webpack.config.js",
   "author": "David Christian Jones",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack  --config  webpack  --progress",
+    "serve": "nodemon server",
+    "start": "yarn build & yarn serve",
+    "serve:prod": "node server",
+    "start:prod": "yarn build && yarn serve:prod",
+    "test": "jest --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@emotion/babel-preset-css-prop": "^10.0.27",
@@ -30,7 +40,7 @@
     "express-static-gzip": "^2.0.6",
     "focus-trap-react": "^6.0.0",
     "intersection-observer": "^0.7.0",
-    "node-dev": "^4.0.0",
+    "nodemon": "^2.0.2",
     "open": "^7.0.3",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
@@ -60,7 +70,6 @@
     "@types/classnames": "^2.2.10",
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.6",
-    "@types/isomorphic-fetch": "^0.0.35",
     "@types/loadable__component": "^5.10.0",
     "@types/nodemon": "^1.19.0",
     "@types/react": "^16.9.23",
@@ -103,15 +112,5 @@
     "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3",
     "webpack-node-externals": "^1.7.2"
-  },
-  "scripts": {
-    "build": "webpack  --config  webpack  --progress",
-    "serve": "node-dev server",
-    "start": "yarn build & yarn serve",
-    "serve:prod": "node server",
-    "start:prod": "yarn build && yarn serve:prod",
-    "test": "jest --watch",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
   }
 }

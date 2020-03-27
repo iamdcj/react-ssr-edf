@@ -26,47 +26,42 @@ export const renderApp = ({ req, res }: ServerGet) => {
     throw Error("Nothing to work with");
   }
 
-  hydrateApplication(".")
-    .then((data: any) => {
-      const context = {};
-      let markup = "";
-      let styleIDs: string[] | null = null;
-      let stylesheet: string = "";
+  const data: any = {};
+  const context = {};
+  let markup = "";
+  let styleIDs: string[] | null = null;
+  let stylesheet: string = "";
 
-      try {
-        const app = (
-          <ChunkExtractorManager extractor={extractor}>
-            <CacheProvider value={cache}>
-              <App path={req.path} context={context} />
-            </CacheProvider>
-          </ChunkExtractorManager>
-        );
+  try {
+    const app = (
+      <ChunkExtractorManager extractor={extractor}>
+        <CacheProvider value={cache}>
+          <App path={req.path} context={context} />
+        </CacheProvider>
+      </ChunkExtractorManager>
+    );
 
-        const { html, ids, css } = extractCritical(renderToString(app));
+    const { html, ids, css } = extractCritical(renderToString(app));
 
-        styleIDs = ids;
-        stylesheet = css;
-        markup = html;
-      } catch (error) {
-        console.error(error);
-      }
+    styleIDs = ids;
+    stylesheet = css;
+    markup = html;
+  } catch (error) {
+    console.error(error);
+  }
 
-      const helmet = Helmet.renderStatic();
+  const helmet = Helmet.renderStatic();
 
-      const styles = { styleIDs, stylesheet };
-      const scriptTags = extractor.getScriptTags();
+  const styles = { styleIDs, stylesheet };
+  const scriptTags = extractor.getScriptTags();
 
-      const document = HTML({
-        helmet,
-        markup,
-        data,
-        styles,
-        scriptTags
-      });
+  const document = HTML({
+    helmet,
+    markup,
+    data,
+    styles,
+    scriptTags
+  });
 
-      res.send(document);
-    })
-    .catch(error => {
-      throw Error(error.message);
-    });
+  res.send(document);
 };
