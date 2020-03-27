@@ -1,27 +1,23 @@
-.vscode
-storybook-static
-*.test.js.snap
-
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
 coverage
 /node_modules
 
-# production
+# output
 /public
 /server
 /bundle-reports
 
-# misc
+# misc.vscode
+storybook-static
+*.test.js.snap
 logs
 *.log
 npm-debug.log*
 .DS_Store
 ../.DS_Store
 .env
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
