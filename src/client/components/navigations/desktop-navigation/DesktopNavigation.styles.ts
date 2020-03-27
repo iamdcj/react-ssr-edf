@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
 const DesktopNavigationContainer = styled.nav`
+  display: flex;
+  align-items: center;
   color: #fff;
 `;
 
@@ -11,10 +13,11 @@ const DesktopNavigationTitle = styled.h3``;
 const DesktopNavigationMenu = styled.ul`
   display: flex;
   list-style: none;
+  margin-bottom: 0;
 `;
 
 const DesktopNavigationMenuItem = styled.li`
-  margin-right: 10px;
+  margin-left: 10px;
 
   a {
     color: #fff;
