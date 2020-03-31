@@ -35,7 +35,7 @@ interface Template {
 
 export interface Region {
   id: string;
-  fragments: any[];
+  fragments: Fragment[];
   extendedProperties: any;
   regions: Region[];
 }
