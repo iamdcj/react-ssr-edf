@@ -1,6 +1,5 @@
 const webpack = require("webpack");
 const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const LoadablePlugin = require("@loadable/webpack-plugin");
@@ -20,9 +19,6 @@ const basePlugins = [
 ];
 
 const productionPlugins = [
-  new CleanWebpackPlugin(["public", "server"], {
-    root: path.join(__dirname, "../../../")
-  }),
   new CompressionPlugin({
     filename: "[path].br[query]",
     algorithm: "brotliCompress",

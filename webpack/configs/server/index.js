@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const isProduction = require("../shared").isProduction;
 const path = require("path");
 const resolve = require("../shared").resolve;
@@ -20,8 +21,8 @@ module.exports = (mode, definePlugin) => ({
   },
   plugins: [
     definePlugin,
-    new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
+    new CleanWebpackPlugin(["public", "server"], {
+      root: path.join(__dirname, "../../../")
     })
   ],
   module: {

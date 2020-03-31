@@ -6,7 +6,9 @@ const { returnDefinePlugin } = require("./configs/shared");
 module.exports = () => {
   const envVars = dotenv.parsed;
   const { ENV = "production" } = envVars;
-  const definePlugin = returnDefinePlugin(envVars);
 
-  return [client(ENV, definePlugin), server(ENV, definePlugin)];
+  return [
+    server(ENV, returnDefinePlugin(envVars, false)),
+    client(ENV, returnDefinePlugin(envVars, true))
+  ];
 };
