@@ -5,8 +5,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   justify-content: center;
   position: sticky;
-  background-color: #000;
-  color: #fff;
+  background-color: ${({ theme }) => theme.palette.white};
 `;
 
 const HeaderInner = styled.div`

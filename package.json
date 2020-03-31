@@ -6,11 +6,10 @@
   "author": "David Christian Jones",
   "license": "MIT",
   "scripts": {
-    "build": "webpack  --config  webpack  --progress",
+    "build": "webpack  --config  webpack  --progress --watch",
     "serve": "nodemon server",
     "start": "yarn build & yarn serve",
-    "serve:prod": "node server",
-    "start:prod": "yarn build && yarn serve:prod",
+    "start:prod": "yarn build && node serve",
     "test": "jest --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
