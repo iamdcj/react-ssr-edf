@@ -2,9 +2,10 @@ import React from "react";
 
 import loadable, { LoadableComponent } from "@loadable/component";
 
-import ErrorBoundary from "../_errors/_boundary";
-
 import { Fragment } from "../../../_types";
+import { manifest } from "./manifest";
+
+import ErrorBoundary from "../_errors/_boundary";
 
 const returnComponent = (
   data: Fragment,
@@ -13,21 +14,13 @@ const returnComponent = (
 ) => {
   const { id } = data.template;
 
-  if (!id) {
+  if (!id || !manifest.includes(id)) {
     return null;
   }
 
   const Component: LoadableComponent<any> = loadable(() =>
     import(`../presentation/${id}`)
   );
-
-  // This feels dirty
-  try {
-    Component.preload();
-  } catch (error) {
-    console.error(error.message);
-    return null;
-  }
 
   return (
     <Component
@@ -38,10 +31,16 @@ const returnComponent = (
   );
 };
 
-const ComponentSwitch = ({ components }: { components: Fragment[] }) => (
+const ComponentSwitch = ({
+  components,
+  id
+}: {
+  components: Fragment[];
+  id: string;
+}) => (
   <>
     {components.map((component: Fragment, index: number) => (
-      <ErrorBoundary key={index}>
+      <ErrorBoundary key={`${index}-${id}-${component.id}`}>
         {returnComponent(component, index, components.length) || null}
       </ErrorBoundary>
     ))}

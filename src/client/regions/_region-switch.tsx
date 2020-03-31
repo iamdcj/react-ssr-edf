@@ -7,11 +7,13 @@ import { Region, Fragment } from "../../_types";
 
 const RegionSwitch = ({ regions }: { regions: Region[] }) => (
   <main>
-    {regions.map(({ fragments }: { fragments: Fragment[] }, index: number) => (
-      <ErrorBoundary key={`region-${index}`}>
-        <ComponentSwitch components={fragments} />
-      </ErrorBoundary>
-    ))}
+    {regions.map(
+      ({ fragments, id }: { fragments: Fragment[] }, index: number) => (
+        <ErrorBoundary key={`region-${index}`}>
+          <ComponentSwitch components={fragments} id={id} />
+        </ErrorBoundary>
+      )
+    )}
   </main>
 );
 
