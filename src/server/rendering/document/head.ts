@@ -3,6 +3,8 @@ import serialize from "serialize-javascript";
 
 import { Head } from "../../../_types";
 
+import { STORE } from "../../../_constants";
+
 const HTMLHead = ({ helmet, data, scriptTags, styles }: Head) =>
   `<head>
     ${Meta(helmet)}
@@ -24,7 +26,7 @@ const Meta = (helmet: any) => `
 const Scripts = (data: JSON, scripts: string) => ` 
   ${scripts}
   <script id="initialData">
-    window.__GEP_COMPOSITION_DTA__ = ${serialize(data)};
+    window.${STORE} = ${serialize(data)};
   </script>
 `;
 
