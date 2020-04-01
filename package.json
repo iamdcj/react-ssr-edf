@@ -110,7 +110,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "build": "webpack  --config  webpack  --progress",
+    "build": "webpack  --config  webpack --progress --watch",
     "serve": "node-dev server",
     "start": "yarn build & yarn serve",
     "serve:prod": "node server",
