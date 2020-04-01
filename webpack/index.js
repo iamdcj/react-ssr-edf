@@ -8,7 +8,7 @@ module.exports = () => {
   const { ENV = "production" } = envVars;
 
   return [
-    server(ENV, returnDefinePlugin(envVars, false)),
-    client(ENV, returnDefinePlugin(envVars, true))
+    client(ENV, returnDefinePlugin(envVars, true)),
+    server(ENV, returnDefinePlugin(envVars, false))
   ];
 };

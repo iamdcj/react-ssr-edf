@@ -8,7 +8,7 @@ module.exports.resolve = {
 
 module.exports.isProduction = mode => mode === "production";
 
-module.exports.returnDefinePlugin = (env, IS_BROWSER) => {
+module.exports.returnDefinePlugin = (env, isBrowser) => {
   const envKeys = Object.keys(env).reduce((prev, next) => {
     prev[`DEPT_EDF_${next}`] = JSON.stringify(env[next]);
     return prev;
@@ -16,7 +16,7 @@ module.exports.returnDefinePlugin = (env, IS_BROWSER) => {
 
   const vars = {
     ...envKeys,
-    IS_BROWSER
+    isBrowser
   };
 
   return new webpack.DefinePlugin(vars);
