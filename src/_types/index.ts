@@ -6,9 +6,12 @@ declare global {
   }
 }
 
+export type Request = express.Request;
+export type Response = express.Response;
+
 export interface ServerGet {
-  req: express.Request;
-  res: express.Response;
+  req: Request;
+  res: Response;
 }
 
 export interface Document {}
@@ -29,13 +32,13 @@ interface Content {
   showOverlay?: boolean;
 }
 
-interface Template {
+export interface Template {
   id: string;
 }
 
 export interface Region {
   id: string;
-  fragments: Fragment[];
+  fragments: any[];
   extendedProperties: any;
   regions: Region[];
 }
@@ -54,4 +57,21 @@ export interface Document extends Head {
 export interface Component {
   title?: string;
   text?: string;
+}
+
+export interface Metadata {}
+
+export interface Composition {
+  template: Template;
+  info: any;
+  metadata: any;
+  regions: Region[];
+}
+
+export interface Application {
+  loading: boolean;
+  status: string;
+  menuActive: boolean;
+  footerVisible: boolean;
+  polyfillsLoaded: boolean;
 }
