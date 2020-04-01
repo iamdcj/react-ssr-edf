@@ -2,13 +2,7 @@ const primary = {
   gray: {
     a: "#FAFAFA",
     b: "#F4F4F4",
-    c: "#EDEDED",
-    d: "#E2E2E2",
-    e: "#D8D8D8",
-    f: "#B2B2B2",
-    g: "#878787",
-    h: "#4A4A4A",
-    i: "#111111"
+    c: "#EDEDED"
   },
   blue: {
     a: "#0096DC",
