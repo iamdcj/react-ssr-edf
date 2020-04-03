@@ -9,13 +9,17 @@ export interface IconProps {
   color?: string;
 }
 
+const manifest = ["placeholder"];
+
 const SVG = ({ name, ...rest }: { name: string }) => {
-  console.log(name);
+  if (!manifest.includes(name)) {
+    return null;
+  }
 
   const Component = loadable(
     () => import(`../../../assets/icons/${name}.svg`),
     {
-      fallback: <></>
+      fallback: <></>,
     }
   );
 
