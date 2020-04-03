@@ -13,17 +13,17 @@ import { ThemeProvider } from "emotion-theming";
 import Theme from "./_styles/theme";
 
 // Hidden
-import Head from "./components/global/head";
-import RouteChange from "./components/global/route-change";
+import Head from "./components/globals/head";
+import RouteChange from "./components/globals/route-change";
 
 // Rendered
 import RegionSwitch from "./regions/_region-switch";
-const Header = loadable(() => import("./components/global/header"));
-const Footer = loadable(() => import("./components/global/footer"));
+const Header = loadable(() => import("./components/globals/header"));
+const Footer = loadable(() => import("./components/globals/footer"));
 
 const AppClient = ({
   regions,
-  metadata
+  metadata,
 }: {
   regions: Region[];
   metadata: Metadata;
@@ -42,7 +42,7 @@ const AppClient = ({
 
 const mapStateToProps = ({ composition }: { composition: Composition }) => ({
   metadata: composition.metadata,
-  regions: composition.regions
+  regions: composition.regions,
 });
 
 export default connect(mapStateToProps, null)(AppClient);
