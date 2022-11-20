@@ -20,7 +20,7 @@
     "@types/react-dom": "^16.9.5",
     "@types/react-helmet": "^5.0.15",
     "@types/react-redux": "^7.1.7",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-emotion": "^10.0.29",
     "babel-preset-react-app": "^9.1.2",
     "classnames": "^2.2.6",
